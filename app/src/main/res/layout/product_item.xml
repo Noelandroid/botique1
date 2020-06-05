@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/llParent"
+    android:gravity="center_vertical"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:orientation="horizontal">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/civDress"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="5"
+        android:src="@drawable/ic_dress"
+        app:civ_border_color="@color/colorPrimary"
+        app:civ_border_width="1dp" />
+
+    <TextView
+        android:id="@+id/tvProductName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="8"
+        android:text="No. of Churidar"
+        android:textSize="@dimen/text_default"
+
+        />
+
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="5">
+
+        <ImageView
+            android:id="@+id/imgDecrement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:clickable="true"
+            android:padding="5dp"
+            android:src="@drawable/selector_decrement" />
+
+        <TextView
+            android:id="@+id/tvCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00"
+            android:layout_centerVertical="true"
+            android:textColor="@color/lightText"
+            android:layout_toLeftOf="@+id/imgIncrement"
+            android:layout_toRightOf="@id/imgDecrement" />
+
+        <ImageView
+            android:id="@+id/imgIncrement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:padding="5dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/selector_increment" />
+
+
+
+
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

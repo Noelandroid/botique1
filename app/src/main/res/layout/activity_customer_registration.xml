@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:background="@color/colorPrimary">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="-14dp"
+                android:gravity="center"
+                android:text="@string/app_name"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tvClear"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="clear"
+                android:gravity="center"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="12sp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                />
+        </RelativeLayout>
+    </android.support.v7.widget.Toolbar>
+<android.support.v4.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/high_margin"
+        android:layout_marginRight="@dimen/high_margin"
+        android:layout_marginTop="@dimen/high_margin"
+        >
+
+        <TextView
+            android:id="@+id/tvCustomerDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/customer_details"
+            android:textSize="@dimen/text_large"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/view"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_marginRight="@dimen/high_margin"
+            android:layout_marginTop="@dimen/half_default_margin"
+            android:background="@color/colorPrimary"
+            app:layout_constraintLeft_toLeftOf="@id/tvCustomerDetails"
+            app:layout_constraintRight_toRightOf="@id/tvCustomerDetails"
+            app:layout_constraintTop_toBottomOf="@+id/tvCustomerDetails" />
+
+        <TextView
+            android:id="@+id/tvMobileNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/high_margin"
+            android:text="@string/mobile_number"
+            android:textSize="@dimen/text_medium"
+            app:layout_constraintBottom_toTopOf="@+id/llMobileNumber"
+            app:layout_constraintTop_toBottomOf="@id/tvCustomerDetails" />
+
+        <LinearLayout
+            android:id="@+id/llMobileNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/default_margin"
+            android:background="@drawable/edit_text_background"
+            app:layout_constraintBottom_toTopOf="@+id/tvHouseName"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/llCustomerName"
+            app:layout_constraintTop_toBottomOf="@id/tvMobileNumber">
+
+            <EditText
+                android:id="@+id/etMobileNumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:inputType="phone"
+                android:hint="@string/hint_mobile"
+                android:maxLines="1"
+                android:textSize="@dimen/text_medium" />
+
+            <ImageView
+                android:id="@+id/imgMobileSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_magnifying_glass" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvCustomerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/customer_name"
+            android:textSize="@dimen/text_medium"
+            app:layout_constraintBottom_toTopOf="@+id/llCustomerName"
+            app:layout_constraintLeft_toLeftOf="@+id/llCustomerName"
+            />
+
+        <LinearLayout
+            android:id="@+id/llCustomerName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/default_margin"
+
+            android:background="@drawable/edit_text_background"
+            app:layout_constraintBottom_toBottomOf="@id/llMobileNumber"
+            app:layout_constraintLeft_toRightOf="@id/llMobileNumber"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/llMobileNumber">
+
+            <EditText
+                android:id="@+id/etCustomerName"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="@string/hint_customer_name"
+                android:inputType="textPersonName"
+                android:maxLines="1"
+                android:textSize="@dimen/text_medium" />
+
+            <ImageView
+                android:id="@+id/imgCustomerNameSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_magnifying_glass" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvHouseName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_margin"
+            android:text="@string/house_name"
+            android:hint="@string/hint_house_name"
+            android:textSize="@dimen/text_medium"
+            app:layout_constraintBottom_toTopOf="@+id/llHouseName"
+            app:layout_constraintTop_toBottomOf="@id/llMobileNumber" />
+
+        <LinearLayout
+            android:id="@+id/llHouseName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/default_margin"
+            android:background="@drawable/edit_text_background"
+            app:layout_constraintBottom_toTopOf="@+id/tvPlace"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/etCO"
+            app:layout_constraintTop_toBottomOf="@id/tvHouseName">
+
+            <EditText
+                android:id="@+id/etHouseName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:maxLines="1"
+                android:background="@null"
+                android:textSize="@dimen/text_medium" />
+
+            <ImageView
+                android:id="@+id/imgHouseNameSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_magnifying_glass" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvCO"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/co"
+            android:textSize="@dimen/text_medium"
+            app:layout_constraintBottom_toTopOf="@+id/etCO"
+            app:layout_constraintLeft_toLeftOf="@+id/etCO" />
+
+
+        <EditText
+            android:id="@+id/etCO"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:layout_marginLeft="@dimen/default_margin"
+            android:background="@drawable/edit_text_background"
+            android:textSize="@dimen/text_medium"
+            app:layout_constraintLeft_toRightOf="@id/llHouseName"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/llHouseName"
+            app:layout_constraintTop_toTopOf="@id/llHouseName"
+
+            />
+
+        <TextView
+            android:id="@+id/tvPlace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_margin"
+            android:text="@string/place"
+            android:textSize="@dimen/text_medium"
+            app:layout_constraintBottom_toTopOf="@+id/etPlace"
+            app:layout_constraintTop_toBottomOf="@id/llHouseName" />
+
+
+        <EditText
+            android:id="@+id/etPlace"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:background="@drawable/edit_text_background"
+            android:layout_marginRight="@dimen/default_margin"
+            android:textSize="@dimen/text_medium"
+            app:layout_constraintBottom_toTopOf="@+id/tvDob"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/etPhoneNumber"
+            app:layout_constraintTop_toBottomOf="@id/tvPlace" />
+
+        <TextView
+            android:id="@+id/tvPhoneNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/phone_number"
+            android:textSize="@dimen/text_medium"
+            app:layout_constraintBottom_toTopOf="@+id/etPhoneNumber"
+            app:layout_constraintLeft_toLeftOf="@+id/etPhoneNumber"
+            />
+
+
+        <EditText
+            android:id="@+id/etPhoneNumber"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:inputType="phone"
+            android:hint="@string/hint_mobile"
+            android:background="@drawable/edit_text_background"
+            android:layout_marginLeft="@dimen/default_margin"
+            android:textSize="@dimen/text_medium"
+            app:layout_constraintBottom_toBottomOf="@id/etPlace"
+            app:layout_constraintLeft_toRightOf="@id/etPlace"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/etPlace" />
+
+        <TextView
+            android:id="@+id/tvDob"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_margin"
+            android:text="@string/DoB"
+            android:textSize="@dimen/text_medium"
+            app:layout_constraintBottom_toTopOf="@+id/llDoB"
+            app:layout_constraintTop_toBottomOf="@id/etPlace" />
+
+        <LinearLayout
+            android:id="@+id/llDoB"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_text_background"
+            android:clickable="true"
+            android:layout_marginRight="@dimen/default_margin"
+            app:layout_constraintBottom_toTopOf="@id/tvWhatsapp"
+            app:layout_constraintTop_toBottomOf="@id/tvPlace"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/llFacebook"
+            >
+
+            <TextView
+                android:id="@+id/etDoB"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:maxLines="1"
+                android:clickable="false"
+                android:focusable="false"
+                android:background="@null"
+                android:textSize="@dimen/text_medium" />
+
+            <ImageView
+                android:id="@+id/imgDoBSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_calendar" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvFacebook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/facebook_profile"
+            android:textSize="@dimen/text_medium"
+            app:layout_constraintBottom_toTopOf="@id/llFacebook"
+            app:layout_constraintLeft_toLeftOf="@id/llFacebook"
+
+            />
+
+        <LinearLayout
+            android:id="@+id/llFacebook"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/linear_layout_background"
+            android:layout_marginLeft="@dimen/default_margin"
+            android:gravity="center_vertical"
+            app:layout_constraintBottom_toBottomOf="@id/llDoB"
+            app:layout_constraintLeft_toRightOf="@id/llDoB"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/llDoB">
+
+            <ImageView
+
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:src="@drawable/ic_facebook_logo" />
+
+            <EditText
+                android:id="@+id/etFacebook"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:maxLines="1"
+                android:layout_marginLeft="@dimen/default_margin"
+                android:hint="@string/hint_facebook"
+                android:background="@null"
+                android:textSize="@dimen/text_medium" />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvWhatsapp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_margin"
+            android:text="@string/whatsapp_number"
+            android:textSize="@dimen/text_medium"
+            app:layout_constraintBottom_toTopOf="@+id/llWhatsapp"
+            app:layout_constraintTop_toBottomOf="@id/llDoB"
+
+            />
+
+        <LinearLayout
+            android:id="@+id/llWhatsapp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/default_margin"
+            android:gravity="center_vertical"
+            android:background="@drawable/linear_layout_background"
+            app:layout_constraintBottom_toTopOf="@+id/etEmailId"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/etContactAddress"
+            app:layout_constraintTop_toBottomOf="@id/tvWhatsapp">
+
+            <ImageView
+
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:src="@drawable/ic_whatsapp" />
+
+            <EditText
+                android:id="@+id/etWhatsapp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:maxLines="1"
+                android:layout_marginLeft="@dimen/default_margin"
+                android:inputType="phone"
+                android:background="@null"
+                android:textSize="@dimen/text_medium" />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvContactAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/contact_address"
+            android:textSize="@dimen/text_medium"
+            app:layout_constraintBottom_toTopOf="@+id/etContactAddress"
+            app:layout_constraintLeft_toLeftOf="@+id/etContactAddress"
+            />
+
+
+        <EditText
+            android:id="@+id/etContactAddress"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:minLines="5"
+            android:maxLines="5"
+            android:gravity="top"
+            android:background="@drawable/edit_text_background"
+            android:layout_marginLeft="@dimen/default_margin"
+            android:textSize="@dimen/text_medium"
+            app:layout_constraintLeft_toRightOf="@id/llWhatsapp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/llWhatsapp"
+            app:layout_constraintBottom_toBottomOf="@+id/etEmailId"
+            />
+
+        <TextView
+            android:id="@+id/tvEmailId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/email_id"
+            android:textSize="@dimen/text_medium"
+            app:layout_constraintBottom_toTopOf="@+id/etEmailId"
+
+            tools:ignore="MissingConstraints" />
+
+
+        <EditText
+            android:id="@+id/etEmailId"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:inputType="textEmailAddress"
+            android:hint="@string/hint_email"
+            android:background="@drawable/edit_text_background"
+            android:layout_marginRight="@dimen/double_default_margin"
+            android:textSize="@dimen/text_medium"
+            app:layout_constraintTop_toBottomOf="@id/llWhatsapp"
+            app:layout_constraintBottom_toTopOf="@+id/tvRemarks"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/etContactAddress"
+            />
+
+        <TextView
+            android:id="@+id/tvRemarks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_margin"
+            android:text="@string/remarks"
+            android:textSize="@dimen/text_medium"
+            app:layout_constraintTop_toBottomOf="@id/etEmailId"
+            app:layout_constraintBottom_toTopOf="@+id/etRemarks"
+            />
+
+
+        <EditText
+            android:id="@+id/etRemarks"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:maxLines="3"
+            android:minLines="3"
+            android:background="@drawable/edit_text_background"
+            android:textSize="@dimen/text_medium"
+            app:layout_constraintTop_toBottomOf="@id/tvRemarks"
+            app:layout_constraintBottom_toTopOf="@+id/btnSubmit"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            />
+
+        <ru.katso.livebutton.LiveButton
+            android:id="@+id/btnSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/double_default_margin"
+            android:layout_marginLeft="@dimen/very_high_margin"
+            android:layout_marginRight="@dimen/very_high_margin"
+            android:paddingBottom="@dimen/double_default_margin"
+            android:paddingTop="@dimen/double_default_margin"
+            android:text="@string/save"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            app:backgroundColor="@color/green"
+            app:corners="@dimen/button_corner"
+            app:normalHeight="@dimen/button_normal_height"
+            app:pressedHeight="@dimen/button_pressed_height"
+            app:shadowColor="@color/darkGreen"
+            app:layout_constraintTop_toBottomOf="@id/etRemarks"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+        <net.bohush.geometricprogressview.GeometricProgressView
+            android:id="@+id/progressView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:gp_type="triangle"
+            app:gp_number_of_angles="10"
+            app:gp_color="@color/colorPrimary"
+            app:gp_duration="800"
+            app:gp_figure_padding="7dp" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v4.widget.NestedScrollView>
+</LinearLayout>

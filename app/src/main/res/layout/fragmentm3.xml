@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardElevation="6dp">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/double_default_margin"
+                >
+
+                <TextView
+                    android:id="@+id/tvItemName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimary"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/tvLabelModel"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+
+                <TextView
+                    android:id="@+id/tvLabelModel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/model"
+                    android:visibility="gone"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold"
+                    android:textAllCaps="true"
+                    app:layout_constraintBottom_toTopOf="@id/rgModel"
+                    app:layout_constraintTop_toBottomOf="@id/tvItemName"
+                    />
+
+                <RadioGroup
+                    android:id="@+id/rgModel"
+                    android:layout_width="0dp"
+
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@id/tvLabelDueDate"
+                    app:layout_constraintBottom_toTopOf="@+id/tvLabelSkirtMeasure"
+
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/etTopMeasure"
+                    >
+
+                    <RadioButton
+                        android:id="@+id/rbSM"
+                        android:text="SM"
+                        android:visibility="gone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <RadioButton
+                        android:id="@+id/rbMM"
+                        android:visibility="gone"
+                        android:text="MM"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <RadioButton
+                        android:id="@+id/rbHM"
+                        android:visibility="gone"
+                        android:text="HM"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                    <RadioButton
+                        android:id="@+id/rbEXH"
+                        android:visibility="gone"
+                        android:text="EXH"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/tvLabelDueDate"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/due_date"
+                    app:layout_constraintBottom_toTopOf="@id/llDoB"
+                    app:layout_constraintTop_toBottomOf="@id/etSkirtMeasure"
+                    />
+
+                <TextView
+                    android:id="@+id/tvLabelTopMeasure"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/top_measurement"
+                    app:layout_constraintBottom_toTopOf="@+id/etTopMeasure"
+                    app:layout_constraintLeft_toLeftOf="@+id/etTopMeasure"
+                    />
+
+                <LinearLayout
+                    android:id="@+id/llDoB"
+                    android:layout_width="0dp"
+                    android:visibility="gone"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edit_text_background"
+                    android:layout_marginRight="10dp"
+                    android:clickable="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvLabelDueDate"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/etTopMeasure"
+
+                    >
+
+                    <TextView
+                        android:id="@+id/etDoB"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:visibility="gone"
+                        android:background="@null"
+                        android:clickable="false"
+                        android:focusable="false"
+                        android:maxLines="1"
+                        android:textSize="@dimen/text_medium"/>
+
+                    <ImageView
+                        android:id="@+id/imgDoBSearch"
+                        android:visibility="gone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_calendar"/>
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/etTopMeasure"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/enter_measurement"
+                    app:layout_constraintBottom_toBottomOf="@id/rgModel"
+                    app:layout_constraintTop_toTopOf="@id/rgModel"
+                    />
+
+                <TextView
+                    android:id="@+id/tvLabelSkirtMeasure"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:text="@string/skirt_measurement"
+                    app:layout_constraintTop_toBottomOf="@+id/rgModel"
+                    app:layout_constraintLeft_toLeftOf="@+id/etSkirtMeasure"
+                    app:layout_constraintBottom_toTopOf="@id/etSkirtMeasure"
+                    />
+
+                <EditText
+                    android:id="@+id/etSkirtMeasure"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:visibility="gone"
+                    android:hint="@string/enter_measurement"
+                    app:layout_constraintBottom_toTopOf="@+id/tvLabelDueDate"
+                    app:layout_constraintLeft_toRightOf="@id/rgModel"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvLabelSkirtMeasure" />
+
+
+
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardElevation="4dp">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/double_default_margin"
+                >
+
+                <android.support.constraint.Guideline
+                    android:id="@+id/guide_percent5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.5"/>
+
+                <TextView
+                    android:id="@+id/tvLabelYolkMeasure"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/yolk_measurement"
+                    android:textStyle="bold"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimary"
+                    app:layout_constraintBottom_toTopOf="@+id/etFrontMeasure"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+
+                <TextView
+                    android:id="@+id/tvLabelFront"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/front"
+                    app:layout_constraintBottom_toBottomOf="@+id/etFrontMeasure"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/etFrontMeasure"
+                    app:layout_constraintTop_toTopOf="@+id/etFrontMeasure"
+                    />
+
+                <EditText
+                    android:id="@+id/etFrontMeasure"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toTopOf="@+id/switchLining"
+                    app:layout_constraintLeft_toRightOf="@id/tvLabelFront"
+                    app:layout_constraintRight_toLeftOf="@id/guide_percent5"
+                    app:layout_constraintTop_toBottomOf="@id/tvLabelYolkMeasure"
+                    />
+
+                <TextView
+                    android:id="@+id/tvLabelBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/back"
+                    app:layout_constraintBottom_toBottomOf="@+id/etBackMeasure"
+                    app:layout_constraintLeft_toLeftOf="@id/guide_percent5"
+                    app:layout_constraintRight_toLeftOf="@+id/etBackMeasure"
+                    app:layout_constraintTop_toTopOf="@+id/etBackMeasure"
+                    />
+
+                <EditText
+                    android:id="@+id/etBackMeasure"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toRightOf="@id/tvLabelBack"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/etFrontMeasure"
+                    />
+
+                <TextView
+                    android:id="@+id/tvLabelLining"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lining"
+                    app:layout_constraintBottom_toBottomOf="@+id/switchLining"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/switchLining"
+                    app:layout_constraintTop_toTopOf="@+id/switchLining"
+                    />
+
+                <android.support.v7.widget.SwitchCompat
+                    android:id="@+id/switchLining"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toTopOf="@+id/tvLabelDesigner"
+                    app:layout_constraintLeft_toRightOf="@id/tvLabelLining"
+                    app:layout_constraintRight_toLeftOf="@+id/tvLabelWork"
+                    app:layout_constraintTop_toBottomOf="@id/etFrontMeasure"
+                    />
+
+                <TextView
+                    android:id="@+id/tvLabelWork"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/work"
+                    app:layout_constraintBottom_toBottomOf="@+id/switchWork"
+                    app:layout_constraintLeft_toRightOf="@id/switchLining"
+                    app:layout_constraintRight_toLeftOf="@+id/switchWork"
+                    app:layout_constraintTop_toTopOf="@+id/switchWork"
+                    />
+
+                <android.support.v7.widget.SwitchCompat
+                    android:id="@+id/switchWork"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@+id/switchLining"
+                    app:layout_constraintLeft_toRightOf="@id/tvLabelWork"
+                    app:layout_constraintRight_toLeftOf="@+id/guide_percent5"
+                    app:layout_constraintTop_toTopOf="@+id/switchLining"
+                    />
+
+                <TextView
+                    android:id="@+id/tvLabelDesigner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/designer"
+                    app:layout_constraintBottom_toTopOf="@+id/spinDesigner"
+                    app:layout_constraintTop_toBottomOf="@id/switchLining"
+                    />
+
+                <android.support.v7.widget.AppCompatSpinner
+                    android:id="@+id/spinDesigner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvLabelDesigner"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/guide_percent5"
+                    />
+
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/double_default_margin"
+            >
+
+            <android.support.constraint.Guideline
+                android:id="@+id/guide_percent25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.25"/>
+
+            <android.support.constraint.Guideline
+                android:id="@+id/guide_percent75"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.75"/>
+
+            <TextView
+                android:id="@+id/tvLabelRemarks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/remarks"
+                app:layout_constraintBottom_toTopOf="@+id/etDescription"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+            <EditText
+                android:id="@+id/etDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/remarks"
+                android:minLines="3"
+                app:layout_constraintBottom_toTopOf="@+id/btnFinish"
+                app:layout_constraintLeft_toLeftOf="@id/tvLabelRemarks"
+                app:layout_constraintTop_toBottomOf="@id/tvLabelRemarks"
+                />
+
+            <ru.katso.livebutton.LiveButton
+                android:id="@+id/btnFinish"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:paddingBottom="@dimen/double_default_margin"
+                android:paddingTop="@dimen/double_default_margin"
+                android:text="@string/finish"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                app:backgroundColor="@color/green"
+                app:corners="@dimen/button_corner"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="@id/guide_percent25"
+                app:layout_constraintRight_toRightOf="@id/guide_percent75"
+                app:layout_constraintTop_toBottomOf="@+id/etDescription"
+                app:normalHeight="@dimen/button_normal_height"
+                app:pressedHeight="@dimen/button_pressed_height"
+                app:shadowColor="@color/darkGreen"
+                />
+
+        </android.support.constraint.ConstraintLayout>
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>

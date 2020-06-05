@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="130dp"
+    android:layout_marginBottom="@dimen/half_default_margin"
+    android:layout_marginTop="@dimen/half_default_margin"
+    android:background="@drawable/search_layout_background">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="5"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/default_margin">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tvCustomerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="John Doe"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@id/tvCodeId"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_large"
+
+            />
+
+            <TextView
+                android:id="@+id/tvCodeId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/half_default_margin"
+                android:layout_alignParentRight="true"
+                android:textStyle="bold"
+                android:text="1323GHDHJHG" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tvMobileNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+91 98656765434" />
+
+        <TextView
+            android:id="@+id/tvHouseName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Blahblahblah House" />
+
+        <TextView
+            android:id="@+id/tvCO"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="C/O Ajith Kumar TP" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="2dp"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/default_margin"
+        android:background="@color/darkGrey" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:gravity="center"
+        android:layout_height="match_parent"
+        android:layout_weight="4">
+
+        <!--<TextView
+            android:id="@+id/tvCodeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/tvCodeId"
+            android:visibility="gone"
+            android:text="@string/code"
+            android:textStyle="bold" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="1px"
+            android:layout_height="1px"
+            android:layout_centerVertical="true" />
+
+        <TextView
+            android:id="@+id/tvCodeId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvCodeLabel"
+            android:layout_centerHorizontal="true"
+            android:text="1323GHDHJHG" />-->
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/tvMeasurement"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/tvOrderExisting"
+            android:background="@drawable/selector_text_button"
+            android:text="@string/measurement"
+            android:gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/default_margin"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/selector_textcolor_to_white" />
+
+        <TextView
+            android:id="@+id/tvOrderExisting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_text_button"
+            android:gravity="center"
+            android:text="@string/orders"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:textColor="@color/selector_textcolor_to_white" />
+
+        <TextView
+            android:id="@+id/tvOrderNew"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvOrderExisting"
+            android:background="@drawable/selector_text_button"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/default_margin"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:text="@string/new_order"
+            android:textColor="@color/selector_textcolor_to_white" />
+    </LinearLayout>
+</LinearLayout>

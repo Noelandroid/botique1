@@ -1,0 +1,1396 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cvTemplate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardElevation="6dp">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/double_default_margin">
+
+                <android.support.constraint.Guideline
+                    android:id="@+id/guide_percent5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.5" />
+
+                <TextView
+                    android:id="@+id/tvLabelTemplateNo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/template_number"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/etTemplateNo"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/etTemplateNo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_template_number"
+                    app:layout_constraintBottom_toTopOf="@+id/tvLabelDesigner"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/guide_percent5"
+                    app:layout_constraintTop_toBottomOf="@id/tvLabelTemplateNo" />
+
+                <TextView
+                    android:id="@+id/tvLabelPad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pad"
+                    app:layout_constraintBottom_toBottomOf="@+id/switchPad"
+                    app:layout_constraintLeft_toRightOf="@id/guide_percent5"
+                    app:layout_constraintRight_toLeftOf="@+id/switchPad"
+                    app:layout_constraintTop_toTopOf="@+id/switchPad" />
+
+                <android.support.v7.widget.SwitchCompat
+                    android:id="@+id/switchPad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@id/etTemplateNo"
+                    app:layout_constraintLeft_toRightOf="@id/tvLabelZip"
+                    app:layout_constraintRight_toLeftOf="@id/tvLabelTuck" />
+
+                <TextView
+                    android:id="@+id/tvLabelDesigner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/designer"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/spinDesigner"
+                    app:layout_constraintTop_toBottomOf="@id/etTemplateNo" />
+
+                <android.support.v7.widget.AppCompatSpinner
+                    android:id="@+id/spinDesigner"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toTopOf="@id/rgZipYes"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/guide_percent5"
+                    app:layout_constraintTop_toBottomOf="@id/tvLabelDesigner" />
+
+                <RadioGroup
+                    android:id="@+id/rgZipYes"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/half_default_margin"
+                    android:orientation="horizontal"
+                    android:visibility="gone"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/guide_percent5"
+                    app:layout_constraintTop_toBottomOf="@id/spinDesigner">
+
+                    <RadioButton
+                        android:id="@+id/rbZipYKK"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/ykk"
+                        android:textAllCaps="true" />
+
+                    <RadioButton
+                        android:id="@+id/rbZipNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/normal" />
+
+                </RadioGroup>
+                
+                <LinearLayout
+                    android:id="@+id/llYKKYes"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/half_default_margin"
+                    android:visibility="gone"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rgZipYes"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    >
+                    <android.support.v7.widget.AppCompatCheckBox
+                        android:id="@+id/checkYKKBack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/back" />
+
+                    <android.support.v7.widget.AppCompatCheckBox
+                        android:id="@+id/checkYKKFront"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/front" />
+
+                    <android.support.v7.widget.AppCompatCheckBox
+                        android:id="@+id/checkYKKSide"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/side" />
+                </LinearLayout>
+
+                <RadioGroup
+                    android:id="@+id/rgYKKNo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/half_default_margin"
+                    android:orientation="horizontal"
+                    android:visibility="gone"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rgZipYes">
+
+                    <RadioButton
+                        android:id="@+id/rbZipHiding"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/hiding"
+                        android:textAllCaps="true" />
+
+                    <RadioButton
+                        android:id="@+id/rbZipNormal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/normal" />
+
+                </RadioGroup>
+
+                <LinearLayout
+                    android:id="@+id/llHidingYes"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/half_default_margin"
+                    android:visibility="gone"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rgYKKNo"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    >
+                    <android.support.v7.widget.AppCompatCheckBox
+                        android:id="@+id/checkHidingBack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/back" />
+                    <android.support.v7.widget.AppCompatCheckBox
+                        android:id="@+id/checkHidingFront"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/front" />
+
+                    <android.support.v7.widget.AppCompatCheckBox
+                        android:id="@+id/checkHidingSide"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/side" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llTuckYes"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/half_default_margin"
+                    android:visibility="gone"
+                    android:gravity="center_horizontal"
+                    app:layout_constraintLeft_toRightOf="@id/guide_percent5"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/spinDesigner">
+
+                    <android.support.v7.widget.AppCompatCheckBox
+                        android:id="@+id/checkTuckFront"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="@string/front" />
+
+                    <android.support.v7.widget.AppCompatCheckBox
+                        android:id="@+id/checkTuckArmHole"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/arm_hole" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvLabelZip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/zip"
+                    app:layout_constraintBottom_toBottomOf="@+id/switchZip"
+                    app:layout_constraintLeft_toRightOf="@id/guide_percent5"
+                    app:layout_constraintRight_toLeftOf="@+id/switchZip"
+                    app:layout_constraintTop_toTopOf="@+id/switchZip" />
+
+                <android.support.v7.widget.SwitchCompat
+                    android:id="@+id/switchZip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@id/spinDesigner"
+                    app:layout_constraintLeft_toRightOf="@id/tvLabelZip"
+                    app:layout_constraintRight_toLeftOf="@id/tvLabelTuck" />
+
+                <TextView
+                    android:id="@+id/tvLabelTuck"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tuck"
+                    app:layout_constraintBottom_toBottomOf="@+id/switchTuck"
+                    app:layout_constraintLeft_toRightOf="@id/switchZip"
+                    app:layout_constraintRight_toLeftOf="@+id/switchTuck"
+                    app:layout_constraintTop_toTopOf="@+id/switchTuck" />
+
+                <android.support.v7.widget.SwitchCompat
+                    android:id="@+id/switchTuck"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@id/spinDesigner"
+                    app:layout_constraintLeft_toRightOf="@id/tvLabelTuck"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cvSleeve"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardElevation="5dp">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/double_default_margin">
+
+                <android.support.constraint.Guideline
+                    android:id="@+id/guide_percent35"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.35" />
+
+                <TextView
+                    android:id="@+id/tvLabelSleeve"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/sleeve"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/switchLining"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvLabelLining"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lining"
+                    app:layout_constraintBottom_toBottomOf="@+id/rgSleevePiping"
+                    app:layout_constraintTop_toTopOf="@+id/rgSleevePiping"
+
+                    />
+
+                <android.support.v7.widget.SwitchCompat
+                    android:id="@+id/switchLining"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@+id/rgSleevePiping"
+                    app:layout_constraintLeft_toRightOf="@id/tvLabelLining"
+                    app:layout_constraintTop_toTopOf="@+id/rgSleevePiping" />
+
+                <TextView
+                    android:id="@+id/tvLabelPiping"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/piping"
+                    app:layout_constraintBottom_toBottomOf="@+id/rgSleevePiping"
+                    app:layout_constraintLeft_toRightOf="@id/guide_percent35"
+                    app:layout_constraintTop_toTopOf="@+id/rgSleevePiping" />
+
+                <RadioGroup
+                    android:id="@+id/rgSleevePiping"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toTopOf="@+id/rgSleeveUnknown"
+                    app:layout_constraintLeft_toRightOf="@id/tvLabelPiping"
+                    app:layout_constraintTop_toBottomOf="@id/tvLabelSleeve">
+
+                    <RadioButton
+                        android:id="@+id/rbSleeveSPP"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/spp" />
+
+                    <RadioButton
+                        android:id="@+id/rbSleeveDPP"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/dpp" />
+
+                    <RadioButton
+                        android:id="@+id/rbSleeveNone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="None" />
+
+                </RadioGroup>
+
+                <RadioGroup
+                    android:id="@+id/rgSleeveUnknown"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rgSleevePiping">
+
+                    <RadioButton
+                        android:id="@+id/rbSS"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/ss" />
+
+                    <RadioButton
+                        android:id="@+id/rbFS"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fs" />
+
+                    <RadioButton
+                        android:id="@+id/rbCS"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/cs" />
+
+                    <RadioButton
+                        android:id="@+id/rb34"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/three_fourth" />
+
+                    <RadioButton
+                        android:id="@+id/rbKL"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/kl" />
+
+                    <RadioButton
+                        android:id="@+id/rbSleeveUnNone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="None" />
+                </RadioGroup>
+
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cvNeck"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardElevation="4dp">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/double_default_margin">
+
+                <android.support.constraint.Guideline
+                    android:id="@+id/guide_percent60"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.6" />
+
+                <TextView
+                    android:id="@+id/tvLabelNeck"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/neck"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/rgNeckPiping"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvLabelNeckPiping"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/piping"
+                    app:layout_constraintBottom_toBottomOf="@+id/rgNeckPiping"
+                    app:layout_constraintTop_toTopOf="@+id/rgNeckPiping" />
+
+                <RadioGroup
+                    android:id="@+id/rgNeckPiping"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toTopOf="@+id/rgNeckUnknown"
+                    app:layout_constraintLeft_toRightOf="@id/tvLabelNeckPiping"
+                    app:layout_constraintTop_toBottomOf="@id/tvLabelNeck">
+
+                    <RadioButton
+                        android:id="@+id/rbNeckSPP"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/spp" />
+
+                    <RadioButton
+                        android:id="@+id/rbNeckDPP"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/dpp" />
+
+                    <RadioButton
+                        android:id="@+id/rbNeckNone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="None" />
+
+                </RadioGroup>
+
+                <RadioGroup
+                    android:id="@+id/rgNeckUnknown"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rgNeckPiping">
+
+                    <RadioButton
+                        android:id="@+id/rbBoat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/boat" />
+
+                    <RadioButton
+                        android:id="@+id/rbCollar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/collar" />
+
+                    <RadioButton
+                        android:id="@+id/rbWide"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/wide" />
+
+                    <RadioButton
+                        android:id="@+id/rbNormal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/normal" />
+
+                    <RadioButton
+                        android:id="@+id/rbSquare"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/square" />
+
+                    <RadioButton
+                        android:id="@+id/rbHighNeck"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/high_neck" />
+
+                    <RadioButton
+                        android:id="@+id/rbNeckUnNone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="None" />
+                </RadioGroup>
+
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cvFlair"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardElevation="3dp">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/double_default_margin">
+
+                <android.support.constraint.Guideline
+                    android:id="@+id/guide_percent60copy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.6" />
+
+                <TextView
+                    android:id="@+id/tvLabelFlair"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/flair"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold"
+                    app:layout_constraintVertical_bias="0.0"
+                    app:layout_constraintBottom_toBottomOf="@+id/llFlairUnknown"
+                    app:layout_constraintTop_toTopOf="@+id/llFlairUnknown" />
+
+                <LinearLayout
+                    android:id="@+id/llFlairUnknown"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/half_default_margin"
+                    android:layout_marginBottom="@dimen/half_default_margin"
+                    android:layout_marginLeft="@dimen/double_default_margin"
+                    android:gravity="center_horizontal"
+                    app:layout_constraintBottom_toTopOf="@+id/rgFlairPiping"
+                    app:layout_constraintLeft_toRightOf="@id/tvLabelFlair"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <android.support.v7.widget.AppCompatCheckBox
+                        android:id="@+id/checkBorder"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/border" />
+
+                    <android.support.v7.widget.AppCompatCheckBox
+                        android:id="@+id/checkWorks"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/works" />
+                    <android.support.v7.widget.AppCompatCheckBox
+                        android:id="@+id/checkPiping"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/piping" />
+                    <android.support.v7.widget.AppCompatCheckBox
+                        android:id="@+id/checkLace"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lace" />
+                    <android.support.v7.widget.AppCompatCheckBox
+                        android:id="@+id/checkUmbrella"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/umbrella" />
+                    <android.support.v7.widget.AppCompatCheckBox
+                        android:id="@+id/checkPanel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/panel" />
+                    <!--<android.support.v7.widget.AppCompatCheckBox
+                        android:id="@+id/checkStraight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/straight" />-->
+                </LinearLayout>
+
+                <!--<RadioGroup
+                    android:id="@+id/rgFlairUnknown"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toTopOf="@+id/rgFlairPiping"
+                    app:layout_constraintLeft_toRightOf="@id/tvLabelFlair"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <RadioButton
+                        android:id="@+id/rbBorder"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/border" />
+
+                    <RadioButton
+                        android:id="@+id/rbWorks"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/works" />
+                </RadioGroup>-->
+
+                <TextView
+                    android:id="@+id/tvLabelFlairPiping"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/piping"
+                    app:layout_constraintBottom_toBottomOf="@+id/rgFlairPiping"
+                    app:layout_constraintTop_toTopOf="@+id/rgFlairPiping"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/rgFlairPiping"
+                    />
+
+                <RadioGroup
+                    android:id="@+id/rgFlairPiping"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toTopOf="@+id/llSlit"
+                    app:layout_constraintTop_toBottomOf="@+id/llFlairUnknown"
+                    app:layout_constraintLeft_toRightOf="@id/tvLabelFlairPiping"
+                    >
+
+                    <RadioButton
+                        android:id="@+id/rbFlairSPP"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/spp" />
+
+                    <RadioButton
+                        android:id="@+id/rbFlairDPP"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/dpp" />
+
+                    <RadioButton
+                        android:id="@+id/rbFlairNone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="None" />
+                </RadioGroup>
+
+                <LinearLayout
+                    android:id="@+id/llSlit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toTopOf="@+id/rgUmbrella"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/llSide"
+                    app:layout_constraintTop_toBottomOf="@id/rgFlairPiping">
+
+                    <TextView
+                        android:id="@+id/tvLabelSlit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/slit" />
+
+                    <android.support.v7.widget.SwitchCompat
+                        android:id="@+id/switchSlit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llSide"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@id/llSlit"
+                    app:layout_constraintLeft_toRightOf="@id/llSlit"
+                    app:layout_constraintRight_toLeftOf="@+id/llFront"
+                    app:layout_constraintTop_toTopOf="@id/llSlit">
+
+                    <TextView
+                        android:id="@+id/tvLabelSide"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/side" />
+
+                    <android.support.v7.widget.SwitchCompat
+                        android:id="@+id/switchSide"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llFront"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@id/llSlit"
+                    app:layout_constraintLeft_toRightOf="@id/llSide"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/llSlit">
+
+                    <TextView
+                        android:id="@+id/tvLabelFront"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/front" />
+
+                    <android.support.v7.widget.SwitchCompat
+                        android:id="@+id/switchFront"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <RadioGroup
+                    android:id="@+id/rgUmbrella"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/default_margin"
+                    app:layout_constraintTop_toBottomOf="@+id/llSlit"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/rgSCWS"
+                    >
+
+                    <RadioButton
+                        android:id="@+id/rbUmbrellaYes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/umbrella" />
+
+                    <RadioButton
+                        android:id="@+id/rbUmbrellaNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/no" />
+                </RadioGroup>
+                <RadioGroup
+                    android:id="@+id/rgSCWS"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toTopOf="@+id/rgUmbrella"
+                    app:layout_constraintLeft_toRightOf="@id/rgUmbrella"
+                    app:layout_constraintRight_toRightOf="parent"
+                    >
+
+                    <RadioButton
+                        android:id="@+id/rbSCWSYes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sc_ws" />
+
+                    <RadioButton
+                        android:id="@+id/rbSCWSNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/no" />
+                </RadioGroup>
+                <RadioGroup
+                    android:id="@+id/rgFrontSlit"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rgUmbrella"
+                    app:layout_constraintLeft_toLeftOf="@id/rgSCWS"
+                    >
+
+                    <RadioButton
+                        android:id="@+id/rbFrontSlitYes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/front_slit" />
+
+                    <RadioButton
+                        android:id="@+id/rbFrontSlitNo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/no" />
+                </RadioGroup>
+
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.CardView>
+
+
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cvBottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardElevation="2dp">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/double_default_margin">
+
+                <TextView
+                    android:id="@+id/tvLabelBottom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bottom"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimary"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/rgBottomPiping"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvLabelBottomPiping"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/piping"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@+id/rgBottomPiping"
+                    app:layout_constraintTop_toTopOf="@+id/rgBottomPiping"
+
+                    />
+
+                <RadioGroup
+                    android:id="@+id/rgBottomPiping"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@+id/rgBottomUnknown"
+                    app:layout_constraintLeft_toRightOf="@id/tvLabelBottom"
+                    app:layout_constraintTop_toBottomOf="@id/tvLabelBottom">
+
+                    <RadioButton
+                        android:id="@+id/rbBottomSPP"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/spp" />
+
+                    <RadioButton
+                        android:id="@+id/rbBottomDPP"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/dpp" />
+
+                </RadioGroup>
+
+                <RadioGroup
+                    android:id="@+id/rgBottomUnknown"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_horizontal"
+                    app:layout_constraintBottom_toTopOf="@+id/llPocket"
+                    app:layout_constraintTop_toBottomOf="@id/rgBottomPiping">
+
+                    <RadioButton
+                        android:id="@+id/rbChuri"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/churi" />
+
+                    <RadioButton
+                        android:id="@+id/rbLoose"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/loose" />
+
+                    <RadioButton
+                        android:id="@+id/rbPencil"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pencil" />
+
+                    <RadioButton
+                        android:id="@+id/rbParallel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/parallel" />
+
+                    <RadioButton
+                        android:id="@+id/rbPattiyala"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pattiyala" />
+
+                    <RadioButton
+                        android:id="@+id/rbPallaso"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pallaso" />
+
+                    <RadioButton
+                        android:id="@+id/rbBottomUnNone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="None" />
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/tvLabelPocket"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pocket"
+                    app:layout_constraintBottom_toBottomOf="@+id/llPocket"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/llPocket"
+                    app:layout_constraintTop_toTopOf="@+id/llPocket" />
+
+                <!--<RadioGroup
+                    android:id="@+id/rgPocket"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/tvLabelPocket"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rgBottomUnknown">
+
+                    <RadioButton
+                        android:id="@+id/rbPocket"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pocket" />
+
+                    <RadioButton
+                        android:id="@+id/rbElastic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/elastic" />
+
+                    <RadioButton
+                        android:id="@+id/rbPressButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/press_button" />
+
+                </RadioGroup>-->
+
+                <LinearLayout
+                    android:id="@+id/llPocket"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/tvLabelPocket"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rgBottomUnknown"
+                    >
+                    <android.support.v7.widget.AppCompatCheckBox
+                        android:id="@+id/checkPocket"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pocket" />
+
+                    <android.support.v7.widget.AppCompatCheckBox
+                        android:id="@+id/checkElastic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/elastic" />
+
+                    <android.support.v7.widget.AppCompatCheckBox
+                        android:id="@+id/checkPressButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/press_button" />
+                </LinearLayout>
+
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.CardView>
+        <android.support.v7.widget.CardView
+            android:id="@+id/cvExtra"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardElevation="2dp">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/double_default_margin">
+
+
+                <TextView
+                    android:id="@+id/tvLabelPleat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pleat"
+                    app:layout_constraintBottom_toBottomOf="@+id/rgPleat"
+                    app:layout_constraintTop_toTopOf="@+id/rgPleat"
+
+                    />
+
+                <RadioGroup
+                    android:id="@+id/rgPleat"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toTopOf="@+id/llOpen"
+                    app:layout_constraintLeft_toRightOf="@id/tvLabelPleat"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <RadioButton
+                        android:id="@+id/rbPleatStraight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/straight" />
+
+                    <RadioButton
+                        android:id="@+id/rbPleatUmbrella"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/umbrella" />
+
+                </RadioGroup>
+
+                <LinearLayout
+                    android:id="@+id/llOpen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="45dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rgPleat">
+
+                    <TextView
+                        android:id="@+id/tvLabelOpen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/open" />
+
+                    <android.support.v7.widget.SwitchCompat
+                        android:id="@+id/switchOpen"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llOpenYes"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@id/llPanel"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/llOpen"
+                    >
+                    <android.support.v7.widget.AppCompatCheckBox
+                        android:id="@+id/checkOpenFront"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/front" />
+
+                    <android.support.v7.widget.AppCompatCheckBox
+                        android:id="@+id/checkOpenBack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/back" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llPanel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/llUmbrella"
+                    app:layout_constraintTop_toBottomOf="@id/llOpenYes">
+
+                    <TextView
+                        android:id="@+id/tvLabelPanel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/panel" />
+
+                    <android.support.v7.widget.SwitchCompat
+                        android:id="@+id/switchPanel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llUmbrella"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toRightOf="@id/llPanel"
+                    app:layout_constraintRight_toLeftOf="@+id/llHanging"
+                    app:layout_constraintTop_toTopOf="@id/llPanel">
+
+                    <TextView
+                        android:id="@+id/tvLabelUmbrella"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/umbrella" />
+
+                    <android.support.v7.widget.SwitchCompat
+                        android:id="@+id/switchUmbrella"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llHanging"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toRightOf="@id/llUmbrella"
+                    app:layout_constraintRight_toLeftOf="@+id/llTunic"
+                    app:layout_constraintTop_toTopOf="@id/llPanel">
+
+                    <TextView
+                        android:id="@+id/tvLabelHanging"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/hanging" />
+
+                    <android.support.v7.widget.SwitchCompat
+                        android:id="@+id/switchHanging"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llTunic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toRightOf="@id/llHanging"
+                    app:layout_constraintRight_toLeftOf="@+id/llStraight"
+                    app:layout_constraintTop_toTopOf="@id/llPanel">
+
+                    <TextView
+                        android:id="@+id/tvLabelTunic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tunics" />
+
+                    <android.support.v7.widget.SwitchCompat
+                        android:id="@+id/switchTunic"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llStraight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:layout_constraintLeft_toRightOf="@id/llTunic"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/llPanel">
+
+                    <TextView
+                        android:id="@+id/tvLabelStraight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/straight" />
+
+                    <android.support.v7.widget.SwitchCompat
+                        android:id="@+id/switchStraight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <android.support.constraint.Barrier
+                    android:id="@+id/barrier7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:barrierDirection="bottom"
+                    app:constraint_referenced_ids="llPanel,llUmbrella,llHanging,llTunic, llStraight" />
+                <RadioGroup
+                    android:id="@+id/rgFrockType"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_horizontal"
+                    app:layout_constraintBottom_toTopOf="@+id/llTransparent"
+                    app:layout_constraintTop_toBottomOf="@id/barrier7">
+
+                    <RadioButton
+                        android:id="@+id/rbFrockNormal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/normal" />
+
+                    <RadioButton
+                        android:id="@+id/rbFrockUmbrella"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/umbrella" />
+
+                    <RadioButton
+                        android:id="@+id/rbFrockALine"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/a_line" />
+
+                    <RadioButton
+                        android:id="@+id/rbFrockTube"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tube_frock" />
+
+                    <RadioButton
+                        android:id="@+id/rbFrockUmbrBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/umbrella_box" />
+
+                    <RadioButton
+                        android:id="@+id/rbFrockBalloon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/balloon_box" />
+
+                    <RadioButton
+                        android:id="@+id/rbFrockNone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="None" />
+                </RadioGroup>
+
+                <TextView
+                    android:id="@+id/tvLabelTransparent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/transparent"
+                    app:layout_constraintBottom_toBottomOf="@+id/llTransparent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/llTransparent"
+                    app:layout_constraintTop_toTopOf="@+id/llTransparent" />
+
+                <LinearLayout
+                    android:id="@+id/llTransparent"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toTopOf="@+id/llTassels"
+                    app:layout_constraintLeft_toRightOf="@id/tvLabelTransparent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rgFrockType"
+                    >
+                    <android.support.v7.widget.AppCompatCheckBox
+                        android:id="@+id/checkTransFront"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/front" />
+
+                    <android.support.v7.widget.AppCompatCheckBox
+                        android:id="@+id/checkTransBack"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/back" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llTassels"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/llLock"
+                    app:layout_constraintTop_toBottomOf="@id/llTransparent">
+
+                    <TextView
+                        android:id="@+id/tvLabelTassel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tassels" />
+
+                    <android.support.v7.widget.SwitchCompat
+                        android:id="@+id/switchTassels"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llLock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@id/llTassels"
+                    app:layout_constraintLeft_toRightOf="@id/llTassels"
+                    app:layout_constraintRight_toLeftOf="@+id/llFall"
+                    app:layout_constraintTop_toTopOf="@id/llTassels">
+
+                    <TextView
+                        android:id="@+id/tvLabelLock"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/lock" />
+
+                    <android.support.v7.widget.SwitchCompat
+                        android:id="@+id/switchLock"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llFall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@id/llTassels"
+                    app:layout_constraintLeft_toRightOf="@id/llLock"
+                    app:layout_constraintRight_toLeftOf="@+id/llEditPiping"
+                    app:layout_constraintTop_toTopOf="@id/llTassels">
+
+                    <TextView
+                        android:id="@+id/tvLabelFall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fall" />
+
+                    <android.support.v7.widget.SwitchCompat
+                        android:id="@+id/switchFall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llEditPiping"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@id/llTassels"
+                    app:layout_constraintLeft_toRightOf="@id/llFall"
+                    app:layout_constraintRight_toLeftOf="@id/llBorder"
+                    app:layout_constraintTop_toTopOf="@id/llTassels">
+
+                    <TextView
+                        android:id="@+id/tvLabelEditPiping"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/piping" />
+
+                    <android.support.v7.widget.SwitchCompat
+                        android:id="@+id/switchEditPiping"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <!--Boarder-->
+                <LinearLayout
+
+                    android:id="@+id/llBorder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="@id/llTassels"
+                    app:layout_constraintLeft_toRightOf="@id/llEditPiping"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toTopOf="@id/llTassels">
+
+                    <TextView
+                        android:id="@+id/tvLabelBorder"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/border" />
+
+                    <android.support.v7.widget.SwitchCompat
+                        android:id="@+id/switchBorder"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/double_default_margin">
+
+            <android.support.constraint.Guideline
+                android:id="@+id/guide_percent25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.25" />
+
+            <android.support.constraint.Guideline
+                android:id="@+id/guide_percent75"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.75" />
+
+            <ru.katso.livebutton.LiveButton
+                android:id="@+id/btnNext"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:paddingBottom="@dimen/double_default_margin"
+                android:paddingTop="@dimen/double_default_margin"
+                android:text="@string/next"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                app:backgroundColor="@color/green"
+                app:corners="@dimen/button_corner"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="@id/guide_percent25"
+                app:layout_constraintRight_toRightOf="@id/guide_percent75"
+                app:layout_constraintTop_toTopOf="parent"
+                app:normalHeight="@dimen/button_normal_height"
+                app:pressedHeight="@dimen/button_pressed_height"
+                app:shadowColor="@color/darkGreen" />
+
+        </android.support.constraint.ConstraintLayout>
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

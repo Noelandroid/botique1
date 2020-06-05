@@ -1,0 +1,1237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardElevation="6dp">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/double_default_margin">
+
+                <TextView
+                    android:id="@+id/tvPriority"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/priority"
+                    app:layout_constraintBottom_toTopOf="@+id/llSpinPriority"
+                    app:layout_constraintLeft_toLeftOf="@+id/llSpinPriority"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:id="@+id/llSpinPriority"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/half_default_margin"
+                    android:layout_marginRight="@dimen/half_default_margin"
+                    android:background="@color/grey"
+                    android:paddingBottom="@dimen/default_margin"
+                    android:paddingLeft="@dimen/very_small_margin"
+                    android:paddingTop="@dimen/default_margin"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@+id/llSpinFunction"
+                    app:layout_constraintTop_toBottomOf="@+id/tvPriority">
+
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:id="@+id/spinPriority"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvFunction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/function"
+                    app:layout_constraintBottom_toTopOf="@+id/llSpinFunction"
+                    app:layout_constraintLeft_toLeftOf="@+id/llSpinFunction" />
+
+                <LinearLayout
+                    android:id="@+id/llSpinFunction"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/half_default_margin"
+                    android:layout_marginRight="@dimen/half_default_margin"
+                    android:background="@color/grey"
+                    android:paddingBottom="@dimen/default_margin"
+                    android:paddingLeft="@dimen/very_small_margin"
+                    android:paddingTop="@dimen/default_margin"
+                    app:layout_constraintLeft_toRightOf="@+id/llSpinPriority"
+                    app:layout_constraintRight_toLeftOf="@+id/llSpinFabric"
+                    app:layout_constraintTop_toTopOf="@id/llSpinPriority">
+
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:id="@+id/spinFunction"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvFabric"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/fabric"
+                    app:layout_constraintBottom_toTopOf="@+id/llSpinFabric"
+                    app:layout_constraintLeft_toLeftOf="@+id/llSpinFabric" />
+
+                <LinearLayout
+                    android:id="@+id/llSpinFabric"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/half_default_margin"
+                    android:layout_marginRight="@dimen/half_default_margin"
+                    android:background="@color/grey"
+                    android:paddingBottom="@dimen/default_margin"
+                    android:paddingLeft="@dimen/very_small_margin"
+                    android:paddingTop="@dimen/default_margin"
+                    app:layout_constraintLeft_toRightOf="@+id/llSpinFunction"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/llSpinPriority">
+
+                    <android.support.v7.widget.AppCompatSpinner
+                        android:id="@+id/spinFabric"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/double_default_margin"
+            android:paddingRight="@dimen/double_default_margin"
+            android:paddingTop="@dimen/high_margin">
+            <LinearLayout
+                android:id="@+id/llFocus"
+                android:orientation="horizontal"
+                android:focusableInTouchMode="true"
+                android:focusable="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <android.support.constraint.Guideline
+                android:id="@+id/guide_percent50"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <android.support.constraint.Guideline
+                android:id="@+id/guide_percent25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.25" />
+
+            <android.support.constraint.Guideline
+                android:id="@+id/guide_percent75"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.75" />
+
+            <LinearLayout
+                android:id="@+id/llTop"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/half_default_margin"
+                android:background="@drawable/ll_bg_padding"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@id/llYoke"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/llTopLining"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:padding="@dimen/default_margin">
+
+                    <EditText
+                        android:id="@+id/etTop"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="@string/top"
+                        android:enabled="false"
+                        android:textSize="@dimen/text_small" />
+                </android.support.design.widget.TextInputLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/veryDarkGrey" />
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="2"
+                    android:padding="@dimen/very_small_margin">
+
+                    <android.support.v7.widget.SwitchCompat
+                        android:id="@+id/switchTop"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:thumb="@drawable/custom_switch_small"
+                        app:track="@drawable/custom_track_small" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llTopLining"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/half_default_margin"
+                android:layout_marginRight="@dimen/half_default_margin"
+                android:background="@drawable/ll_bg_padding"
+                android:orientation="horizontal"
+                app:layout_constraintLeft_toRightOf="@+id/llTop"
+                app:layout_constraintRight_toLeftOf="@+id/llLace"
+                app:layout_constraintTop_toTopOf="@id/llTop">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:padding="@dimen/default_margin">
+
+                    <EditText
+                        android:id="@+id/etTopLining"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="@string/top_lining"
+                        android:enabled="false"
+                        android:textSize="@dimen/text_small" />
+                </android.support.design.widget.TextInputLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/veryDarkGrey" />
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="2"
+                    android:padding="@dimen/very_small_margin">
+
+                    <android.support.v7.widget.SwitchCompat
+                        android:id="@+id/switchTopLining"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:thumb="@drawable/custom_switch_small"
+                        app:track="@drawable/custom_track_small" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llLace"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/half_default_margin"
+                android:layout_marginRight="@dimen/half_default_margin"
+                android:background="@drawable/ll_bg_padding"
+                android:orientation="horizontal"
+                app:layout_constraintLeft_toRightOf="@id/llTopLining"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/llTop">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:padding="@dimen/default_margin">
+
+                    <EditText
+                        android:id="@+id/etLace"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="@string/lace"
+                        android:enabled="false"
+                        android:textSize="@dimen/text_small" />
+                </android.support.design.widget.TextInputLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/veryDarkGrey" />
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="2"
+                    android:padding="@dimen/very_small_margin">
+
+                    <android.support.v7.widget.SwitchCompat
+                        android:id="@+id/switchLace"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:thumb="@drawable/custom_switch_small"
+                        app:track="@drawable/custom_track_small" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llYoke"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/half_default_margin"
+                android:background="@drawable/ll_bg_padding"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@id/llBottom"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/llYokeLining"
+                app:layout_constraintTop_toBottomOf="@id/llTop">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:padding="@dimen/default_margin">
+
+                    <EditText
+                        android:id="@+id/etYoke"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="@string/yoke"
+                        android:enabled="false"
+                        android:textSize="@dimen/text_small" />
+                </android.support.design.widget.TextInputLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/veryDarkGrey" />
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="2"
+                    android:padding="@dimen/very_small_margin">
+
+                    <android.support.v7.widget.SwitchCompat
+                        android:id="@+id/switchYoke"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:thumb="@drawable/custom_switch_small"
+                        app:track="@drawable/custom_track_small" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llYokeLining"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/half_default_margin"
+                android:layout_marginRight="@dimen/half_default_margin"
+                android:background="@drawable/ll_bg_padding"
+                android:orientation="horizontal"
+                app:layout_constraintLeft_toRightOf="@+id/llYoke"
+                app:layout_constraintRight_toLeftOf="@+id/llSleeveLining"
+                app:layout_constraintTop_toTopOf="@id/llYoke">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:padding="@dimen/default_margin">
+
+                    <EditText
+                        android:id="@+id/etYokeLining"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="@string/yoke_lining"
+                        android:enabled="false"
+                        android:textSize="@dimen/text_small" />
+                </android.support.design.widget.TextInputLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/veryDarkGrey" />
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="2"
+                    android:padding="@dimen/very_small_margin">
+
+                    <android.support.v7.widget.SwitchCompat
+                        android:id="@+id/switchYokeLining"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:thumb="@drawable/custom_switch_small"
+                        app:track="@drawable/custom_track_small" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llSleeveLining"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/half_default_margin"
+                android:layout_marginRight="@dimen/half_default_margin"
+                android:background="@drawable/ll_bg_padding"
+                android:orientation="horizontal"
+                app:layout_constraintLeft_toRightOf="@id/llYokeLining"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/llYoke"
+                app:layout_constraintBottom_toBottomOf="@id/llYoke"
+                >
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:padding="@dimen/default_margin">
+
+                    <EditText
+                        android:id="@+id/etSleeveLining"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="@string/sleeve_lining"
+                        android:enabled="false"
+                        android:textSize="@dimen/text_small" />
+                </android.support.design.widget.TextInputLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/veryDarkGrey" />
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="2"
+                    android:padding="@dimen/very_small_margin">
+
+                    <android.support.v7.widget.SwitchCompat
+                        android:id="@+id/switchSleeveLining"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:thumb="@drawable/custom_switch_small"
+                        app:track="@drawable/custom_track_small" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llBottom"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/half_default_margin"
+                android:background="@drawable/ll_bg_padding"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@+id/llSleeve"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/llBottomLining"
+                app:layout_constraintTop_toBottomOf="@id/llYoke">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:padding="@dimen/default_margin">
+
+                    <EditText
+                        android:id="@+id/etBottom"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="@string/bottom"
+                        android:enabled="false"
+                        android:textSize="@dimen/text_small" />
+                </android.support.design.widget.TextInputLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/veryDarkGrey" />
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="2"
+                    android:padding="@dimen/very_small_margin">
+
+                    <android.support.v7.widget.SwitchCompat
+                        android:id="@+id/switchBottom"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:thumb="@drawable/custom_switch_small"
+                        app:track="@drawable/custom_track_small" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llBottomLining"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/half_default_margin"
+                android:layout_marginRight="@dimen/half_default_margin"
+                android:background="@drawable/ll_bg_padding"
+                android:orientation="horizontal"
+                app:layout_constraintLeft_toRightOf="@+id/llBottom"
+                app:layout_constraintRight_toLeftOf="@+id/llWorkPiece"
+                app:layout_constraintTop_toTopOf="@id/llBottom">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:padding="@dimen/default_margin">
+
+                    <EditText
+                        android:id="@+id/etBottomLining"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="@string/bottom_lining"
+                        android:enabled="false"
+                        android:textSize="@dimen/text_small" />
+                </android.support.design.widget.TextInputLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/veryDarkGrey" />
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="2"
+                    android:padding="@dimen/very_small_margin">
+
+                    <android.support.v7.widget.SwitchCompat
+                        android:id="@+id/switchBottomLining"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:thumb="@drawable/custom_switch_small"
+                        app:track="@drawable/custom_track_small" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llWorkPiece"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/half_default_margin"
+                android:layout_marginRight="@dimen/half_default_margin"
+                android:background="@drawable/ll_bg_padding"
+                android:orientation="horizontal"
+                app:layout_constraintLeft_toRightOf="@id/llBottomLining"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/llBottom"
+                app:layout_constraintBottom_toBottomOf="@id/llBottom"
+                >
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:padding="@dimen/default_margin">
+
+                    <EditText
+                        android:id="@+id/etWorkPiece"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="@string/work_piece"
+                        android:enabled="false"
+                        android:textSize="@dimen/text_small" />
+                </android.support.design.widget.TextInputLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/veryDarkGrey" />
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="2">
+
+                    <android.support.v7.widget.SwitchCompat
+                        android:id="@+id/switchWorkPiece"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:thumb="@drawable/custom_switch_small"
+                        app:track="@drawable/custom_track_small" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llSleeve"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/half_default_margin"
+                android:background="@drawable/ll_bg_padding"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@id/llPiping"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/llSpeakerNet"
+                app:layout_constraintTop_toBottomOf="@id/llBottom">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:padding="@dimen/default_margin">
+
+                    <EditText
+                        android:id="@+id/etSleeve"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="@string/sleeve"
+                        android:enabled="false"
+                        android:textSize="@dimen/text_small" />
+                </android.support.design.widget.TextInputLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/veryDarkGrey" />
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="2"
+                    android:padding="@dimen/very_small_margin">
+
+                    <android.support.v7.widget.SwitchCompat
+                        android:id="@+id/switchSleeve"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:thumb="@drawable/custom_switch_small"
+                        app:track="@drawable/custom_track_small" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llSpeakerNet"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/half_default_margin"
+                android:background="@drawable/ll_bg_padding"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@id/llSleeve"
+                app:layout_constraintLeft_toRightOf="@id/llSleeve"
+                app:layout_constraintRight_toLeftOf="@+id/llSleeveLining"
+                app:layout_constraintTop_toTopOf="@id/llSleeve">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:padding="@dimen/default_margin">
+
+                    <EditText
+                        android:id="@+id/etSpeakerNet"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="@string/speakernet"
+                        android:enabled="false"
+                        android:textSize="@dimen/text_small" />
+                </android.support.design.widget.TextInputLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/veryDarkGrey" />
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="2"
+                    android:padding="@dimen/very_small_margin">
+
+                    <android.support.v7.widget.SwitchCompat
+                        android:id="@+id/switchSpeakernet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:thumb="@drawable/custom_switch_small"
+                        app:track="@drawable/custom_track_small" />
+                </RelativeLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/llSpeakerNetLining"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/half_default_margin"
+                android:background="@drawable/ll_bg_padding"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@id/llSleeve"
+                app:layout_constraintLeft_toRightOf="@id/llSpeakerNet"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/llSleeve">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:padding="@dimen/default_margin">
+
+                    <EditText
+                        android:id="@+id/etSpeakerNetLining"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="@string/speakernet_lining"
+                        android:enabled="false"
+                        android:textSize="@dimen/text_small" />
+                </android.support.design.widget.TextInputLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/veryDarkGrey" />
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="2"
+                    android:padding="@dimen/very_small_margin">
+
+                    <android.support.v7.widget.SwitchCompat
+                        android:id="@+id/switchSpeakernetLining"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:thumb="@drawable/custom_switch_small"
+                        app:track="@drawable/custom_track_small" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llPiping"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/half_default_margin"
+                android:background="@drawable/ll_bg_padding"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@id/tvLabelOthers"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/llPipingLining"
+                app:layout_constraintTop_toBottomOf="@id/llSleeve">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:padding="@dimen/default_margin">
+
+                    <EditText
+                        android:id="@+id/etPiping"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="@string/piping"
+                        android:enabled="false"
+                        android:textSize="@dimen/text_small" />
+                </android.support.design.widget.TextInputLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/veryDarkGrey" />
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="2"
+                    android:padding="@dimen/very_small_margin">
+
+                    <android.support.v7.widget.SwitchCompat
+                        android:id="@+id/switchPiping"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:thumb="@drawable/custom_switch_small"
+                        app:track="@drawable/custom_track_small" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llPipingLining"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/half_default_margin"
+                android:background="@drawable/ll_bg_padding"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@id/llPiping"
+                app:layout_constraintLeft_toRightOf="@id/llPiping"
+                app:layout_constraintRight_toLeftOf="@+id/llSleeveLining"
+                app:layout_constraintTop_toTopOf="@id/llPiping">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:padding="@dimen/default_margin">
+
+                    <EditText
+                        android:id="@+id/etPipingLining"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="@string/piping_lining"
+                        android:enabled="false"
+                        android:textSize="@dimen/text_small" />
+                </android.support.design.widget.TextInputLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/veryDarkGrey" />
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="2"
+                    android:padding="@dimen/very_small_margin">
+
+                    <android.support.v7.widget.SwitchCompat
+                        android:id="@+id/switchPipingLining"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:thumb="@drawable/custom_switch_small"
+                        app:track="@drawable/custom_track_small" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvLabelOthers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/half_default_margin"
+                android:text="@string/others"
+                app:layout_constraintBottom_toTopOf="@+id/etOthers"
+                app:layout_constraintLeft_toLeftOf="@id/llTop"
+                app:layout_constraintTop_toBottomOf="@id/llPiping" />
+
+            <EditText
+                android:id="@+id/etOthers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/half_default_margin"
+                android:background="@color/grey"
+                android:gravity="top"
+                android:minLines="2"
+                android:hint="@string/others"
+                app:layout_constraintBottom_toTopOf="@+id/tvLabelSkirt"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvLabelOthers" />
+
+            <TextView
+                android:id="@+id/tvLabelSkirt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/half_default_margin"
+                android:text="@string/skirts"
+                app:layout_constraintBottom_toTopOf="@+id/llSkirt"
+                app:layout_constraintLeft_toLeftOf="@id/llTop"
+                app:layout_constraintTop_toBottomOf="@id/etOthers" />
+
+            <LinearLayout
+                android:id="@+id/llSkirt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/half_default_margin"
+                android:background="@drawable/ll_bg_padding"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@id/llSkirtSpeakerNetLining"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/llSkirtLining"
+                app:layout_constraintTop_toBottomOf="@id/tvLabelSkirt">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:padding="@dimen/default_margin">
+
+                    <EditText
+                        android:id="@+id/etSkirt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="@string/skirts"
+                        android:enabled="false"
+                        android:textSize="@dimen/text_small" />
+                </android.support.design.widget.TextInputLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/veryDarkGrey" />
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="2"
+                    android:padding="@dimen/very_small_margin">
+
+                    <android.support.v7.widget.SwitchCompat
+                        android:id="@+id/switchSkirt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:thumb="@drawable/custom_switch_small"
+                        app:track="@drawable/custom_track_small" />
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llSkirtLining"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/half_default_margin"
+                android:layout_marginRight="@dimen/half_default_margin"
+                android:background="@drawable/ll_bg_padding"
+                android:orientation="horizontal"
+                app:layout_constraintLeft_toRightOf="@+id/llSkirt"
+                app:layout_constraintRight_toLeftOf="@+id/llSkirtSpeakerNet"
+                app:layout_constraintTop_toTopOf="@id/llSkirt">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:padding="@dimen/default_margin">
+
+                    <EditText
+                        android:id="@+id/etSkirtLining"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="@string/skirt_lining"
+                        android:enabled="false"
+                        android:textSize="@dimen/text_small" />
+                </android.support.design.widget.TextInputLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/veryDarkGrey" />
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="2"
+                    android:padding="@dimen/very_small_margin">
+
+                    <android.support.v7.widget.SwitchCompat
+                        android:id="@+id/switchSkirtLining"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:thumb="@drawable/custom_switch_small"
+                        app:track="@drawable/custom_track_small" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llSkirtSpeakerNet"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/half_default_margin"
+                android:layout_marginRight="@dimen/half_default_margin"
+                android:background="@drawable/ll_bg_padding"
+                android:orientation="horizontal"
+                app:layout_constraintLeft_toRightOf="@id/llSkirtLining"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/llSkirt">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:padding="@dimen/default_margin">
+
+                    <EditText
+                        android:id="@+id/etSkirtSpeakertNet"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="@string/speakernet"
+                        android:enabled="false"
+                        android:textSize="@dimen/text_small" />
+                </android.support.design.widget.TextInputLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/veryDarkGrey" />
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="2"
+                    android:padding="@dimen/very_small_margin">
+
+                    <android.support.v7.widget.SwitchCompat
+                        android:id="@+id/switchSkirtSpeakerNet"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:thumb="@drawable/custom_switch_small"
+                        app:track="@drawable/custom_track_small" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/llSkirtSpeakerNetLining"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/half_default_margin"
+                android:background="@drawable/ll_bg_padding"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@id/tvLabelMeasurement"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/llSkirtLining"
+                app:layout_constraintTop_toBottomOf="@id/llSkirt">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="4"
+                    android:padding="@dimen/default_margin">
+
+                    <EditText
+                        android:id="@+id/etSkirtSpeakerNetLining"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:hint="@string/speakernet_lining"
+                        android:enabled="false"
+                        android:textSize="@dimen/text_small" />
+                </android.support.design.widget.TextInputLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="@color/veryDarkGrey" />
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="2"
+                    android:padding="@dimen/very_small_margin">
+
+                    <android.support.v7.widget.SwitchCompat
+                        android:id="@+id/switchSkirtSpeakerNetLining"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:thumb="@drawable/custom_switch_small"
+                        app:track="@drawable/custom_track_small" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvLabelSkirtOthers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/half_default_margin"
+                android:text="@string/others"
+                app:layout_constraintBottom_toTopOf="@+id/etSkirtOthers"
+                app:layout_constraintLeft_toLeftOf="@id/llTop"
+                app:layout_constraintTop_toBottomOf="@id/llSkirtSpeakerNetLining" />
+
+            <EditText
+                android:id="@+id/etSkirtOthers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/half_default_margin"
+                android:background="@color/grey"
+                android:gravity="top"
+                android:minLines="2"
+                android:hint="@string/others"
+                app:layout_constraintBottom_toTopOf="@+id/tvLabelMeasurement"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvLabelSkirtOthers" />
+
+            <TextView
+                android:id="@+id/tvLabelMeasurement"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/double_default_margin"
+                android:text="@string/measurement"
+                app:layout_constraintBottom_toTopOf="@+id/checkTop"
+                app:layout_constraintLeft_toLeftOf="@id/llTop"
+                app:layout_constraintTop_toBottomOf="@id/etSkirtOthers" />
+
+            <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/checkTop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/half_default_margin"
+                android:text="@string/top"
+                app:layout_constraintBottom_toTopOf="@+id/tvLabelDescription"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@+id/checkBottom"
+                app:layout_constraintTop_toBottomOf="@id/tvLabelMeasurement" />
+
+            <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/checkBottom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bottom"
+                app:layout_constraintBottom_toBottomOf="@id/checkTop"
+                app:layout_constraintLeft_toRightOf="@id/checkTop"
+                app:layout_constraintRight_toRightOf="@id/guide_percent50"
+                app:layout_constraintTop_toTopOf="@id/checkTop" />
+
+            <!--<RadioGroup
+                android:id="@+id/rgMeasurment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/half_default_margin"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@+id/tvLabelDescription"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:visibility="gone"
+                app:layout_constraintRight_toLeftOf="@id/guide_percent50"
+                app:layout_constraintTop_toBottomOf="@id/tvLabelMeasurement">
+
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/top" />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bottom" />
+            </RadioGroup>-->
+
+            <TextView
+                android:id="@+id/tvLabelDesigner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/designer"
+                app:layout_constraintBottom_toBottomOf="@+id/tvLabelMeasurement"
+                app:layout_constraintLeft_toLeftOf="@+id/llSpinDesigner" />
+
+            <LinearLayout
+                android:id="@+id/llSpinDesigner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/grey"
+                android:paddingBottom="@dimen/default_margin"
+                android:paddingLeft="@dimen/very_small_margin"
+                android:paddingTop="@dimen/default_margin"
+
+                app:layout_constraintLeft_toLeftOf="@id/guide_percent50"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/checkTop">
+
+                <android.support.v7.widget.AppCompatSpinner
+                    android:id="@+id/spinDesigner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvLabelDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/half_default_margin"
+                android:text="@string/description"
+                app:layout_constraintBottom_toTopOf="@+id/etDescription"
+                app:layout_constraintLeft_toLeftOf="@id/llTop"
+                app:layout_constraintTop_toBottomOf="@id/checkTop" />
+
+            <EditText
+                android:id="@+id/etDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/half_default_margin"
+                android:background="@color/grey"
+                android:gravity="top"
+                android:minLines="3"
+                android:hint="@string/description"
+                app:layout_constraintBottom_toTopOf="@+id/btnNext"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvLabelDescription" />
+
+            <ru.katso.livebutton.LiveButton
+                android:id="@+id/btnNext"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/default_margin"
+                android:paddingBottom="@dimen/double_default_margin"
+                android:paddingTop="@dimen/double_default_margin"
+                android:text="@string/next"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                app:backgroundColor="@color/green"
+                app:corners="@dimen/button_corner"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="@id/guide_percent25"
+                app:layout_constraintRight_toRightOf="@id/guide_percent75"
+                app:layout_constraintTop_toBottomOf="@+id/etDescription"
+                app:normalHeight="@dimen/button_normal_height"
+                app:pressedHeight="@dimen/button_pressed_height"
+                app:shadowColor="@color/darkGreen" />
+
+
+        </android.support.constraint.ConstraintLayout>
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>

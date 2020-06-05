@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:layout_alignParentTop="true"
+        android:elevation="@dimen/default_margin"
+        android:background="@color/colorPrimary">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tvMeasureTitle"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="-62dp"
+                android:gravity="center"
+                android:text="user name"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+    </android.support.v7.widget.Toolbar>
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/white"
+        android:elevation="@dimen/default_margin"
+        android:layout_below="@id/toolbar"
+        app:tabGravity="fill"
+        app:tabIndicatorColor="@color/white"
+        app:tabIndicatorHeight="3dp"
+        app:tabMode="fixed"
+        app:tabSelectedTextColor="@color/colorPrimary"
+        app:tabTextColor="@color/veryDarkGrey" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tabs"
+        android:background="@color/white" />
+
+    <net.bohush.geometricprogressview.GeometricProgressView
+        android:id="@+id/progressView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        app:gp_type="triangle"
+        app:gp_number_of_angles="10"
+        app:gp_color="@color/colorPrimary"
+        app:gp_duration="800"
+        app:gp_figure_padding="7dp" />
+</RelativeLayout>

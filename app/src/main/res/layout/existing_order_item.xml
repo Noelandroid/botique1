@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="@dimen/half_default_margin"
+    android:layout_marginBottom="4dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/search_layout_background">
+    <TextView
+        android:id="@+id/tvLabelOrderID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Order Id:"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+    <TextView
+        android:id="@+id/tvOrderId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:layout_marginLeft="@dimen/default_margin"
+        app:layout_constraintLeft_toRightOf="@id/tvLabelOrderID"
+        />
+
+    <TextView
+        android:id="@+id/tvOrderDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+    <TextView
+        android:id="@+id/tvLabelOrderDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:text="Order Date:"
+        android:layout_marginRight="@dimen/default_margin"
+        app:layout_constraintRight_toLeftOf="@id/tvOrderDate"
+        />
+
+    <TextView
+        android:id="@+id/tvLabelDueDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:text="Due Date:"
+        android:layout_marginTop="@dimen/half_default_margin"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/tvOrderId"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/tvDueDate"
+        android:layout_width="wrap_content"
+        android:visibility="gone"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/default_margin"
+        app:layout_constraintTop_toTopOf="@id/tvLabelDueDate"
+        app:layout_constraintBottom_toBottomOf="@id/tvLabelDueDate"
+        app:layout_constraintLeft_toRightOf="@id/tvLabelDueDate"
+        />
+
+    <Button
+        android:id="@+id/buttonaddmore"
+        android:layout_width="100dp"
+        android:textStyle="bold"
+        android:layout_marginRight="20dp"
+        android:textColor="@color/white"
+        android:background="@color/colorPrimaryDark"
+        android:layout_height="30dp"
+        app:layout_constraintTop_toTopOf="@id/tvLabelDueDate"
+        app:layout_constraintStart_toStartOf="@+id/tvDueDate"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="ADD MORE"></Button>
+
+</android.support.constraint.ConstraintLayout>
