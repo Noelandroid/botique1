@@ -75,7 +75,7 @@ public class SecondNewOrderActivity extends BaseActivity implements ProductListA
 
 
 
-
+        OrderList();
 
 
 
@@ -163,12 +163,12 @@ public class SecondNewOrderActivity extends BaseActivity implements ProductListA
                 progressView.setVisibility(View.VISIBLE);
                 order = true;
 
-               // orderlist();
+               //OrderList();
 
 
                 if (orderNo != null){
                     saveOrder();
-                    //orderlist();
+                    //OrderList();
                     }
 
                 else
@@ -320,7 +320,7 @@ public class SecondNewOrderActivity extends BaseActivity implements ProductListA
     }
 
 
-    /*private void orderlist() {
+    private void OrderList() {
         progressView.setVisibility(View.VISIBLE);
         String CmpId = getSharedPreferenceHelper().getString(CMPID, ""),
                 BrId = getSharedPreferenceHelper().getString(BRID, "");
@@ -331,87 +331,47 @@ public class SecondNewOrderActivity extends BaseActivity implements ProductListA
             public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
                 try {
                     if (response.body() != null) {
-                        olist.clear();
+                        plist.clear();
                         JSONArray jsonArray = new JSONArray(response.body().getAsJsonArray().toString());
 
                         for (int i = 0; i < jsonArray.length(); i++) {
-                            OrderDress od = new OrderDress();
+                            ProductData2 od = new ProductData2();
                             JSONObject temp = jsonArray.getJSONObject(i);
-                            od.setId(temp.getString("ID"));
-                            od.setName(temp.getString("Name"));
-                            od.setAccName(temp.getString("AccName"));
-                            od.setAccCode(temp.getString("AccCode"));
-                            od.setAutoId(temp.getString("AutoId"));
-                            int image;
-                                Log.e("Id", od.getId());
-                            if (od.getId().contains("CH")) {
-                                image = R.drawable.churidar;
-                                od.setBodyMesurementType(Constants.BodyMeasurementType.NoUI);
-
-                            } else if (od.getId().contains("AN")) {
-                                image = R.drawable.anarkali;
-                                od.setBodyMesurementType(Constants.BodyMeasurementType.NoUI);
-
-                            }  else if (od.getId().contains("FR")) {
-                                image = R.drawable.frock;
-                                od.setBodyMesurementType(Constants.BodyMeasurementType.NoUI);
-
-                            } else if (od.getId().contains("BL")) {
-                                image = R.drawable.blouse;
-                                od.setBodyMesurementType(Constants.BodyMeasurementType.NoUI);
-
-                            } else if (od.getId().contains("SK")) {
-                                image = R.drawable.top;
-                                od.setBodyMesurementType(Constants.BodyMeasurementType.NoUI);
-
-                            } else if (od.getId().contains("GN")) {
-                                image = R.drawable.gown;
-                                od.setBodyMesurementType(Constants.BodyMeasurementType.NoUI);
-
-                            } else if (od.getId().contains("SH")) {
-                                image = R.drawable.shawl;
-                                od.setBodyMesurementType(Constants.BodyMeasurementType.NoUI);
-
-                            } else if (od.getId().contains("SA")) {
-                                image = R.drawable.saree;
-                                od.setBodyMesurementType(Constants.BodyMeasurementType.NoUI);
-
-                            } else if (od.getId().contains("OV")) {
-                                image = R.drawable.overcoat;
-
-                                od.setBodyMesurementType(Constants.BodyMeasurementType.NoUI);
-                            }
-                            else if (od.getId().contains("CS")) {
-                                image = R.drawable.simplechuridar;
-
-                                od.setBodyMesurementType(Constants.BodyMeasurementType.NoUI);
-                            }
-                            else if (od.getId().contains("WN")) {
-                                image = R.drawable.weddingnet;
-
-                                od.setBodyMesurementType(Constants.BodyMeasurementType.NoUI);
-                            }
-                            else if (od.getId().contains("WB")) {
-                                image = R.drawable.wedingblouse;
-
-                                od.setBodyMesurementType(Constants.BodyMeasurementType.NoUI);
-                            }
+                            od.setAutoId(temp.getString("AutoID"));
+                           od.setId(temp.getString("Id"));
+                           od.setTokenNo(temp.getString("TokenNo"));
+                           od.setRefNo(temp.getString("RefNo"));
+                           od.setTrDate(temp.getString("TrDate"));
+                           od.setAccId(temp.getString("AcccId"));
+                           od.setAccName(temp.getString("AccName"));
+                           od.setAccCode(temp.getString("AccCode"));
+                           od.setIsAlteration(temp.getString("IsAlteration"));
+                           od.setMobileNo(temp.getString("MobileNo"));
+                           od.setNoOfChurider(temp.getString("NoOfChurider"));
+                           od.setNoOfAnarkali(temp.getString("NoOfAnarkali"));
+                            od.setNoOfShawl(temp.getString("NoOfShawl"));
+                            od.setNoOfSaree(temp.getString("NoOfSaree"));
+                            od.setNoOfFrock(temp.getString("NoOfFrock"));
+                            od.setNoOfBlouse(temp.getString("NoOfBlouse"));
+                            od.setNoOfTopSkirt(temp.getString("NoOfTopSkirt"));
+                            od.setNoOfGown(temp.getString("NoOfGown"));
+                            od.setNoOfOverCoat(temp.getString("NoOfOverCoat"));
+                            od.setNoOfItem1(temp.getString("NoOfItem1"));
+                            od.setNoOfItem2(temp.getString("NoOfItem2"));
+                            od.setNoOfItem3(temp.getString("NoOfItem3"));
+                            od.setNoOfItem4(temp.getString("NoOfItem4"));
+                            od.setNoOfItem5(temp.getString("NoOfItem5"));
+                            od.setTotBags(temp.getString("TotBags"));
+                            od.setCompanyId(temp.getString("CompanyId"));
+                            od.setBranchId(temp.getString("BranchId"));
 
 
 
 
-                            else { // items if not present in our list
-                                od.setBodyMesurementType(Constants.BodyMeasurementType.NoUI);
-                                image = R.drawable.ic_no_image;
-                            }
-                            od.setImage(image);
-                            olist.add(od);
+                            plist.add(od);
 
                         }
                         mAdapter.notifyDataSetChanged();
-                        progressView.setVisibility(View.GONE);
-                    } else {
-                        Toast.makeText(SecondNewOrderActivity.this, "No Data Found", Toast.LENGTH_SHORT).show();
                         progressView.setVisibility(View.GONE);
                     }
                 } catch (Exception e) {
@@ -429,7 +389,7 @@ public class SecondNewOrderActivity extends BaseActivity implements ProductListA
                 progressView.setVisibility(View.GONE);
             }
         });
-    }*/
+    }
 
 
 }

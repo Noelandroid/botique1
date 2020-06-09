@@ -167,7 +167,6 @@ public class NewOrderActivity extends BaseActivity implements  ProductListAdapte
 
                 if (orderNo != null){
                     saveOrder();
-                    orderlist();
                 }
                 else
                     generateOrderNum();
@@ -312,45 +311,5 @@ public class NewOrderActivity extends BaseActivity implements  ProductListAdapte
         mAdapter.notifyItemChanged(position);
     }
 
-    private void orderlist() {
-        String CmpId = getSharedPreferenceHelper().getString(CMPID, ""),
-                BrId = getSharedPreferenceHelper().getString(BRID, "");
 
-
-        Call<JsonElement> call;
-        call = AppApplication.getApiService().OrderList(CmpId, BrId,orderNo);
-
-        call.enqueue(new Callback<JsonElement>() {
-            @Override
-            public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
-                try {
-                    if (response.body() != null) {
-                        JSONObject jsonObject = new JSONObject(response.body().getAsJsonObject().toString());
-                        if (jsonObject.getString("ErrorCode").equalsIgnoreCase("0")) {
-                            Toast.makeText(NewOrderActivity.this, jsonObject.getString("Message"), Toast.LENGTH_SHORT).show();
-
-                            /*Intent intent = new Intent(NewOrderActivity.this, ProductListAdapter2.class);
-                            intent.putExtra("custId", custId);
-                            intent.putExtra("orderNo", orderNo);
-                            intent.putExtra("itemcount",itemcount);
-
-                            startActivity(intent);*/
-                            finish();
-                        } else {
-                            Toast.makeText(NewOrderActivity.this, jsonObject.getString("Message"), Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                progressView.setVisibility(View.GONE);
-            }
-
-            @Override
-            public void onFailure(Call<JsonElement> call, Throwable t) {
-                Toast.makeText(NewOrderActivity.this, "Something went Wrong!", Toast.LENGTH_SHORT).show();
-                progressView.setVisibility(View.GONE);
-            }
-        });
-    }
 }
