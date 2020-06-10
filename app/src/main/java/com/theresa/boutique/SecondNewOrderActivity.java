@@ -35,6 +35,7 @@ import ru.katso.livebutton.LiveButton;
 import static com.theresa.boutique.util.Constants.BRID;
 import static com.theresa.boutique.util.Constants.CMPID;
 import static com.theresa.boutique.util.Constants.FAID;
+import static com.theresa.boutique.util.Constants.ORDERNO;
 import static com.theresa.boutique.util.Constants.USERID;
 
 public class SecondNewOrderActivity extends BaseActivity implements ProductListAdapter2.ClickListener {
@@ -74,7 +75,6 @@ public class SecondNewOrderActivity extends BaseActivity implements ProductListA
 
 
 
-
         OrderList();
 
 
@@ -96,8 +96,8 @@ public class SecondNewOrderActivity extends BaseActivity implements ProductListA
                         JSONObject jsonObject = new JSONObject(response.body().getAsJsonObject().toString());
                         if (jsonObject.getString("ErrorCode").equalsIgnoreCase("0")) {
                             orderNo = jsonObject.getString("Data");
-                            if (order)
-                                saveOrder();
+                            if (order){}
+                                //saveOrder();
                         } else {
                             Toast.makeText(SecondNewOrderActivity.this, "OrderNumber Creation failed.", Toast.LENGTH_SHORT).show();
                             progressView.setVisibility(View.GONE);
@@ -154,6 +154,8 @@ public class SecondNewOrderActivity extends BaseActivity implements ProductListA
         addData();
 
 
+
+
         mAdapter = new ProductListAdapter2(this, plist);
         rvProductList.setAdapter(mAdapter);
 
@@ -167,7 +169,7 @@ public class SecondNewOrderActivity extends BaseActivity implements ProductListA
 
 
                 if (orderNo != null){
-                    saveOrder();
+                    //saveOrder();
                     //OrderList();
                     }
 
@@ -180,7 +182,7 @@ public class SecondNewOrderActivity extends BaseActivity implements ProductListA
 
     }
 
-    private void saveOrder() {
+  /*  private void saveOrder() {
         String UserId = getSharedPreferenceHelper().getString(USERID, ""),
                 CmpId = getSharedPreferenceHelper().getString(CMPID, ""),
                 BrId = getSharedPreferenceHelper().getString(BRID, ""),
@@ -231,7 +233,7 @@ public class SecondNewOrderActivity extends BaseActivity implements ProductListA
                 progressView.setVisibility(View.GONE);
             }
         });
-    }
+    }*/
 
     private void addData() {
 
@@ -324,8 +326,10 @@ public class SecondNewOrderActivity extends BaseActivity implements ProductListA
         progressView.setVisibility(View.VISIBLE);
         String CmpId = getSharedPreferenceHelper().getString(CMPID, ""),
                 BrId = getSharedPreferenceHelper().getString(BRID, "");
+               String OrderNo=getSharedPreferenceHelper().getString(ORDERNO, "");
 
-        Call<JsonElement> call = AppApplication.getApiService().OrderList(CmpId, BrId, orderNo);
+
+        Call<JsonElement> call = AppApplication.getApiService().OrderList(CmpId, BrId, OrderNo);
         call.enqueue(new Callback<JsonElement>() {
             @Override
             public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
@@ -337,41 +341,45 @@ public class SecondNewOrderActivity extends BaseActivity implements ProductListA
                         for (int i = 0; i < jsonArray.length(); i++) {
                             ProductData2 od = new ProductData2();
                             JSONObject temp = jsonArray.getJSONObject(i);
-                            od.setAutoId(temp.getString("AutoID"));
-                           od.setId(temp.getString("Id"));
-                           od.setTokenNo(temp.getString("TokenNo"));
-                           od.setRefNo(temp.getString("RefNo"));
-                           od.setTrDate(temp.getString("TrDate"));
-                           od.setAccId(temp.getString("AcccId"));
+                            od.setAutoId(temp.getInt("AutoID"));
+                           od.setId(temp.getInt("Id"));
+                           od.setTokenNo(temp.getInt("TokenNo"));
+                           od.setRefNo(temp.getInt("RefNo"));
+                           od.setTrDate(temp.getInt("TrDate"));
+                           od.setAccId(temp.getInt("AcccId"));
                            od.setAccName(temp.getString("AccName"));
-                           od.setAccCode(temp.getString("AccCode"));
+                           od.setAccCode(temp.getInt("AccCode"));
                            od.setIsAlteration(temp.getString("IsAlteration"));
-                           od.setMobileNo(temp.getString("MobileNo"));
-                           od.setNoOfChurider(temp.getString("NoOfChurider"));
-                           od.setNoOfAnarkali(temp.getString("NoOfAnarkali"));
-                            od.setNoOfShawl(temp.getString("NoOfShawl"));
-                            od.setNoOfSaree(temp.getString("NoOfSaree"));
-                            od.setNoOfFrock(temp.getString("NoOfFrock"));
-                            od.setNoOfBlouse(temp.getString("NoOfBlouse"));
-                            od.setNoOfTopSkirt(temp.getString("NoOfTopSkirt"));
-                            od.setNoOfGown(temp.getString("NoOfGown"));
-                            od.setNoOfOverCoat(temp.getString("NoOfOverCoat"));
-                            od.setNoOfItem1(temp.getString("NoOfItem1"));
-                            od.setNoOfItem2(temp.getString("NoOfItem2"));
-                            od.setNoOfItem3(temp.getString("NoOfItem3"));
-                            od.setNoOfItem4(temp.getString("NoOfItem4"));
-                            od.setNoOfItem5(temp.getString("NoOfItem5"));
-                            od.setTotBags(temp.getString("TotBags"));
-                            od.setCompanyId(temp.getString("CompanyId"));
-                            od.setBranchId(temp.getString("BranchId"));
-
+                           od.setMobileNo(temp.getInt("MobileNo"));
+                           od.setNoOfChurider(temp.getInt("NoOfChurider"));
+                           od.setNoOfAnarkali(temp.getInt("NoOfAnarkali"));
+                            od.setNoOfShawl(temp.getInt("NoOfShawl"));
+                            od.setNoOfSaree(temp.getInt("NoOfSaree"));
+                            od.setNoOfFrock(temp.getInt("NoOfFrock"));
+                            od.setNoOfBlouse(temp.getInt("NoOfBlouse"));
+                            od.setNoOfTopSkirt(temp.getInt("NoOfTopSkirt"));
+                            od.setNoOfGown(temp.getInt("NoOfGown"));
+                            od.setNoOfOverCoat(temp.getInt("NoOfOverCoat"));
+                            od.setNoOfItem1(temp.getInt("NoOfItem1"));
+                            od.setNoOfItem2(temp.getInt("NoOfItem2"));
+                            od.setNoOfItem3(temp.getInt("NoOfItem3"));
+                            od.setNoOfItem4(temp.getInt("NoOfItem4"));
+                            od.setNoOfItem5(temp.getInt("NoOfItem5"));
+                            od.setTotBags(temp.getInt("TotBags"));
+                            od.setCompanyId(temp.getInt("CompanyId"));
+                            od.setBranchId(temp.getInt("BranchId"));
 
 
 
                             plist.add(od);
 
+
                         }
                         mAdapter.notifyDataSetChanged();
+                        progressView.setVisibility(View.GONE);
+                    }
+                    else {
+                        Toast.makeText(SecondNewOrderActivity.this, "No Data Found", Toast.LENGTH_SHORT).show();
                         progressView.setVisibility(View.GONE);
                     }
                 } catch (Exception e) {

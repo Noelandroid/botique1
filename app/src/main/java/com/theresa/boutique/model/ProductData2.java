@@ -5,36 +5,36 @@ import android.os.Parcelable;
 
 public class ProductData2 implements Parcelable {
 
-    String id;
-    String AutoId;
-    String TokenNo;
-    String RefNo;
-    String TrDate;
-    String OptDate;
-    String AccId;
+    int id;
+    int AutoId;
+    int TokenNo;
+    int RefNo;
+    int TrDate;
+    int OptDate;
+    int AccId;
     String AccName;
-    String AccCode;
+    int AccCode;
     String IsAlteration;
-    String MobileNo;
-    String NoOfChurider;
-    String NoOfAnarkali;
-    String NoOfShawl;
-    String NoOfSaree;
-    String NoOfFrock;
-    String NoOfBlouse;
-    String NoOfTopSkirt;
-    String NoOfGown;
-    String NoOfOverCoat;
-    String NoOfItem1;
-    String NoOfItem2;
-    String NoOfItem3;
-    String NoOfItem4;
-    String NoOfItem5;
-    String TotBags;
-    String CompanyId;
-    String BranchId;
-    String EmpId;
-    String UserId;
+    int MobileNo;
+    int NoOfChurider;
+    int NoOfAnarkali;
+    int NoOfShawl;
+    int NoOfSaree;
+    int NoOfFrock;
+    int NoOfBlouse;
+    int NoOfTopSkirt;
+    int NoOfGown;
+    int NoOfOverCoat;
+    int NoOfItem1;
+    int NoOfItem2;
+    int NoOfItem3;
+    int NoOfItem4;
+    int NoOfItem5;
+    int TotBags;
+    int CompanyId;
+    int BranchId;
+    int EmpId;
+    int UserId;
 
     String itemName;
     String imageUrl;
@@ -43,35 +43,35 @@ public class ProductData2 implements Parcelable {
 
     protected ProductData2(Parcel in) {
         //id = in.readInt();
-        NoOfChurider=in.readString();
-        NoOfAnarkali=in.readString();
-        NoOfShawl=in.readString();
-        NoOfSaree=in.readString();
-        NoOfFrock=in.readString();
-        NoOfBlouse=in.readString();
-        NoOfTopSkirt=in.readString();
-        NoOfGown=in.readString();
-        NoOfOverCoat=in.readString();
-        NoOfItem1=in.readString();
-        NoOfItem2=in.readString();
-        NoOfItem3=in.readString();
-        NoOfItem4=in.readString();
-        NoOfItem5=in.readString();
-        TotBags=in.readString();
-        CompanyId=in.readString();
-        BranchId=in.readString();
-        EmpId=in.readString();
-        UserId=in.readString();
-        id=in.readString();
-        MobileNo=in.readString();
-        AutoId=in.readString();
-        TokenNo=in.readString();
-        RefNo=in.readString();
-        TrDate=in.readString();
-        OptDate=in.readString();
-        AccId=in.readString();
+        NoOfChurider=in.readInt();
+        NoOfAnarkali=in.readInt();
+        NoOfShawl=in.readInt();
+        NoOfSaree=in.readInt();
+        NoOfFrock=in.readInt();
+        NoOfBlouse=in.readInt();
+        NoOfTopSkirt=in.readInt();
+        NoOfGown=in.readInt();
+        NoOfOverCoat=in.readInt();
+        NoOfItem1=in.readInt();
+        NoOfItem2=in.readInt();
+        NoOfItem3=in.readInt();
+        NoOfItem4=in.readInt();
+        NoOfItem5=in.readInt();
+        TotBags=in.readInt();
+        CompanyId=in.readInt();
+        BranchId=in.readInt();
+        EmpId=in.readInt();
+        UserId=in.readInt();
+        id=in.readInt();
+        MobileNo=in.readInt();
+        AutoId=in.readInt();
+        TokenNo=in.readInt();
+        RefNo=in.readInt();
+        TrDate=in.readInt();
+        OptDate=in.readInt();
+        AccId=in.readInt();
         AccName=in.readString();
-        AccCode=in.readString();
+        AccCode=in.readInt();
         IsAlteration=in.readString();
         itemName = in.readString();
         imageUrl = in.readString();
@@ -95,219 +95,219 @@ public class ProductData2 implements Parcelable {
         }
     };
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
-    public String getAutoId() {
+    public int getAutoId() {
         return AutoId;
     }
 
-    public void setAutoId(String autoId) {
+    public void setAutoId(int autoId) {
         AutoId = autoId;
     }
 
-    public String getTokenNo() {
+    public int getTokenNo() {
         return TokenNo;
     }
 
-    public void setTokenNo(String tokenNo) {
+    public void setTokenNo(int tokenNo) {
         TokenNo = tokenNo;
     }
 
-    public String getTotBags() {
+    public int getTotBags() {
         return TotBags;
     }
 
-    public void setTotBags(String totBags) {
+    public void setTotBags(int totBags) {
         TotBags = totBags;
     }
 
-    public String getEmpId() {
+    public int getEmpId() {
         return EmpId;
     }
 
-    public void setEmpId(String empId) {
+    public void setEmpId(int empId) {
         EmpId = empId;
     }
 
-    public String getUserId() {
+    public int getUserId() {
         return UserId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(int userId) {
         UserId = userId;
     }
 
-    public String getCompanyId() {
+    public int getCompanyId() {
         return CompanyId;
     }
 
-    public void setCompanyId(String companyId) {
+    public void setCompanyId(int companyId) {
         CompanyId = companyId;
     }
 
-    public String getBranchId() {
+    public int getBranchId() {
         return BranchId;
     }
 
-    public void setBranchId(String branchId) {
+    public void setBranchId(int branchId) {
         BranchId = branchId;
     }
 
-    public String getNoOfChurider() {
+    public int getNoOfChurider() {
         return NoOfChurider;
     }
 
-    public void setNoOfChurider(String noOfChurider) {
+    public void setNoOfChurider(int noOfChurider) {
         NoOfChurider = noOfChurider;
     }
 
-    public String getNoOfAnarkali() {
+    public int getNoOfAnarkali() {
         return NoOfAnarkali;
     }
 
-    public void setNoOfAnarkali(String noOfAnarkali) {
+    public void setNoOfAnarkali(int noOfAnarkali) {
         NoOfAnarkali = noOfAnarkali;
     }
 
-    public String getNoOfShawl() {
+    public int getNoOfShawl() {
         return NoOfShawl;
     }
 
-    public void setNoOfShawl(String noOfShawl) {
+    public void setNoOfShawl(int noOfShawl) {
         NoOfShawl = noOfShawl;
     }
 
-    public String getNoOfSaree() {
+    public int getNoOfSaree() {
         return NoOfSaree;
     }
 
-    public void setNoOfSaree(String noOfSaree) {
+    public void setNoOfSaree(int noOfSaree) {
         NoOfSaree = noOfSaree;
     }
 
-    public String getNoOfFrock() {
+    public int getNoOfFrock() {
         return NoOfFrock;
     }
 
-    public void setNoOfFrock(String noOfFrock) {
+    public void setNoOfFrock(int noOfFrock) {
         NoOfFrock = noOfFrock;
     }
 
-    public String getNoOfBlouse() {
+    public int getNoOfBlouse() {
         return NoOfBlouse;
     }
 
-    public void setNoOfBlouse(String noOfBlouse) {
+    public void setNoOfBlouse(int noOfBlouse) {
         NoOfBlouse = noOfBlouse;
     }
 
-    public String getNoOfTopSkirt() {
+    public int getNoOfTopSkirt() {
         return NoOfTopSkirt;
     }
 
-    public void setNoOfTopSkirt(String noOfTopSkirt) {
+    public void setNoOfTopSkirt(int noOfTopSkirt) {
         NoOfTopSkirt = noOfTopSkirt;
     }
 
-    public String getNoOfGown() {
+    public int getNoOfGown() {
         return NoOfGown;
     }
 
-    public void setNoOfGown(String noOfGown) {
+    public void setNoOfGown(int noOfGown) {
         NoOfGown = noOfGown;
     }
 
-    public String getNoOfOverCoat() {
+    public int getNoOfOverCoat() {
         return NoOfOverCoat;
     }
 
-    public void setNoOfOverCoat(String noOfOverCoat) {
+    public void setNoOfOverCoat(int noOfOverCoat) {
         NoOfOverCoat = noOfOverCoat;
     }
 
-    public String getNoOfItem1() {
+    public int getNoOfItem1() {
         return NoOfItem1;
     }
 
-    public void setNoOfItem1(String noOfItem1) {
+    public void setNoOfItem1(int noOfItem1) {
         NoOfItem1 = noOfItem1;
     }
 
-    public String getNoOfItem2() {
+    public int getNoOfItem2() {
         return NoOfItem2;
     }
 
-    public void setNoOfItem2(String noOfItem2) {
+    public void setNoOfItem2(int noOfItem2) {
         NoOfItem2 = noOfItem2;
     }
 
-    public String getNoOfItem3() {
+    public int getNoOfItem3() {
         return NoOfItem3;
     }
 
-    public void setNoOfItem3(String noOfItem3) {
+    public void setNoOfItem3(int noOfItem3) {
         NoOfItem3 = noOfItem3;
     }
 
-    public String getNoOfItem4() {
+    public int getNoOfItem4() {
         return NoOfItem4;
     }
 
-    public void setNoOfItem4(String noOfItem4) {
+    public void setNoOfItem4(int noOfItem4) {
         NoOfItem4 = noOfItem4;
     }
 
-    public String getNoOfItem5() {
+    public int getNoOfItem5() {
         return NoOfItem5;
     }
 
-    public void setNoOfItem5(String noOfItem5) {
+    public void setNoOfItem5(int noOfItem5) {
         NoOfItem5 = noOfItem5;
     }
 
-    public String getRefNo() {
+    public int getRefNo() {
         return RefNo;
     }
 
-    public void setRefNo(String refNo) {
+    public void setRefNo(int refNo) {
         RefNo = refNo;
     }
 
-    public String getMobileNo() {
+    public int getMobileNo() {
         return MobileNo;
     }
 
-    public void setMobileNo(String mobileNo) {
+    public void setMobileNo(int mobileNo) {
         MobileNo = mobileNo;
     }
 
-    public String getTrDate() {
+    public int getTrDate() {
         return TrDate;
     }
 
-    public void setTrDate(String trDate) {
+    public void setTrDate(int trDate) {
         TrDate = trDate;
     }
 
-    public String getOptDate() {
+    public int getOptDate() {
         return OptDate;
     }
 
-    public void setOptDate(String optDate) {
+    public void setOptDate(int optDate) {
         OptDate = optDate;
     }
 
-    public String getAccId() {
+    public int getAccId() {
         return AccId;
     }
 
-    public void setAccId(String accId) {
+    public void setAccId(int accId) {
         AccId = accId;
     }
 
@@ -319,11 +319,11 @@ public class ProductData2 implements Parcelable {
         AccName = accName;
     }
 
-    public String getAccCode() {
+    public int getAccCode() {
         return AccCode;
     }
 
-    public void setAccCode(String accCode) {
+    public void setAccCode(int accCode) {
         AccCode = accCode;
     }
 
@@ -375,36 +375,36 @@ public class ProductData2 implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         //dest.writeInt(Integer.parseInt(id));
-        dest.writeString(id);
-        dest.writeString(AutoId);
-        dest.writeString(TokenNo);
-        dest.writeString(RefNo);
-        dest.writeString(TrDate);
-        dest.writeString(OptDate);
-        dest.writeString(AccId);
+        dest.writeInt(id);
+        dest.writeInt(AutoId);
+        dest.writeInt(TokenNo);
+        dest.writeInt(RefNo);
+        dest.writeInt(TrDate);
+        dest.writeInt(OptDate);
+        dest.writeInt(AccId);
         dest.writeString(AccName);
-        dest.writeString(AccCode);
+        dest.writeInt(AccCode);
         dest.writeString(IsAlteration);
-        dest.writeString(MobileNo);
-        dest.writeString(NoOfChurider);
-        dest.writeString(NoOfAnarkali);
-        dest.writeString(NoOfShawl);
-        dest.writeString(NoOfSaree);
-        dest.writeString(NoOfFrock);
-        dest.writeString(NoOfBlouse);
-        dest.writeString(NoOfTopSkirt);
-        dest.writeString(NoOfGown);
-        dest.writeString(NoOfOverCoat);
-        dest.writeString(NoOfItem1);
-        dest.writeString(NoOfItem2);
-        dest.writeString(NoOfItem3);
-        dest.writeString(NoOfItem4);
-        dest.writeString(NoOfItem5);
-        dest.writeString(TotBags);
-        dest.writeString(EmpId);
-        dest.writeString(CompanyId);
-        dest.writeString(BranchId);
-        dest.writeString(UserId);
+        dest.writeInt(MobileNo);
+        dest.writeInt(NoOfChurider);
+        dest.writeInt(NoOfAnarkali);
+        dest.writeInt(NoOfShawl);
+        dest.writeInt(NoOfSaree);
+        dest.writeInt(NoOfFrock);
+        dest.writeInt(NoOfBlouse);
+        dest.writeInt(NoOfTopSkirt);
+        dest.writeInt(NoOfGown);
+        dest.writeInt(NoOfOverCoat);
+        dest.writeInt(NoOfItem1);
+        dest.writeInt(NoOfItem2);
+        dest.writeInt(NoOfItem3);
+        dest.writeInt(NoOfItem4);
+        dest.writeInt(NoOfItem5);
+        dest.writeInt(TotBags);
+        dest.writeInt(EmpId);
+        dest.writeInt(CompanyId);
+        dest.writeInt(BranchId);
+        dest.writeInt(UserId);
         dest.writeString(itemName);
         dest.writeString(imageUrl);
         dest.writeInt(imageDrawable);
