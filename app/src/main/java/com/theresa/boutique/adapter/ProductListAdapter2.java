@@ -87,7 +87,7 @@ public class ProductListAdapter2 extends RecyclerView.Adapter<ProductListAdapter
             //itemListView.tvnewCount.setText(formatter.format(oList.get(i-1).getItemCount()));
 
 
-            itemListView.tvnewCount.setText(formatter.format(oList.get(i-1).getNoOfItem1()));
+            itemListView.tvnewCount.setText(formatter.format(oList.get(i-1).getNoOfChurider()));
             itemListView.tvnewCount.setText(formatter.format(oList.get(i-1).getNoOfAnarkali()));
             itemListView.tvnewCount.setText(formatter.format(oList.get(i-1).getNoOfShawl()));
             itemListView.tvnewCount.setText(formatter.format(oList.get(i-1).getNoOfSaree()));

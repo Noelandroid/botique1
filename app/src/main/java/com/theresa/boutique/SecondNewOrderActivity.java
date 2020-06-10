@@ -367,7 +367,7 @@ public class SecondNewOrderActivity extends BaseActivity implements ProductListA
                             od.setNoOfItem5(temp.getInt("NoOfItem5"));
                             od.setTotBags(temp.getInt("TotBags"));
                             od.setCompanyId(temp.getInt("CompanyId"));
-                            od.setBranchId(temp.getInt("CompanyId"));
+                            od.setBranchId(temp.getInt("BranchId"));
 
 
 
