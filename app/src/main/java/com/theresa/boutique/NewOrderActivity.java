@@ -3,30 +3,22 @@ package com.theresa.boutique;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
-import android.support.v4.content.LocalBroadcastManager;
-import android.support.v7.widget.AppCompatSpinner;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SwitchCompat;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.CompoundButton;
-import android.widget.TextView;
 import android.widget.Toast;
+
 import com.google.gson.JsonElement;
 import com.theresa.boutique.adapter.ProductListAdapter;
-import com.theresa.boutique.adapter.ProductListAdapter2;
-import com.theresa.boutique.adapter.SpinnerAlterTypeAdapter;
 import com.theresa.boutique.base.BaseActivity;
-import com.theresa.boutique.model.AlterItem;
 import com.theresa.boutique.model.ProductData;
+
 import net.bohush.geometricprogressview.GeometricProgressView;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -39,17 +31,16 @@ import ru.katso.livebutton.LiveButton;
 import static com.theresa.boutique.util.Constants.BRID;
 import static com.theresa.boutique.util.Constants.CMPID;
 import static com.theresa.boutique.util.Constants.FAID;
-
 import static com.theresa.boutique.util.Constants.USERID;
 
-public class NewOrderActivity extends BaseActivity implements  ProductListAdapter.ClickListener {
+public class NewOrderActivity extends BaseActivity implements ProductListAdapter.ClickListener {
     private Toolbar toolbar;
     private LiveButton btnProceed;
     private RecyclerView rvProductList;
     private GeometricProgressView progressView;
     private ProductListAdapter mAdapter;
     ArrayList<ProductData> list = new ArrayList<>();
-    private String orderNo = null, custId, isAlter = "false",itemcount;
+    private String orderNo = null, custId, isAlter = "false", itemcount;
     SwitchCompat switchAlter;
 
 
@@ -62,11 +53,7 @@ public class NewOrderActivity extends BaseActivity implements  ProductListAdapte
         generateOrderNum();
 
 
-
-
-
         initView();
-
 
 
         custId = getIntent().getStringExtra("CustId");
@@ -80,7 +67,7 @@ public class NewOrderActivity extends BaseActivity implements  ProductListAdapte
 
             String itemcount = intent.getStringExtra("count");
             String item = intent.getStringExtra("item");
-            Toast.makeText(NewOrderActivity.this, item  +" "+itemcount, Toast.LENGTH_SHORT).show();
+            Toast.makeText(NewOrderActivity.this, item + " " + itemcount, Toast.LENGTH_SHORT).show();
 
         }
     };
@@ -116,7 +103,6 @@ public class NewOrderActivity extends BaseActivity implements  ProductListAdapte
         });
 
     }
-
 
 
     private void initView() {
@@ -163,12 +149,11 @@ public class NewOrderActivity extends BaseActivity implements  ProductListAdapte
                 progressView.setVisibility(View.VISIBLE);
                 order = true;
                 //orderlist();
-               // LocalBroadcastManager.getInstance(NewOrderActivity.this).registerReceiver(mMessageReciever,new IntentFilter("custom"));
+                // LocalBroadcastManager.getInstance(NewOrderActivity.this).registerReceiver(mMessageReciever,new IntentFilter("custom"));
 
-                if (orderNo != null){
+                if (orderNo != null) {
                     saveOrder();
-                }
-                else
+                } else
                     generateOrderNum();
 
             }
@@ -191,12 +176,12 @@ public class NewOrderActivity extends BaseActivity implements  ProductListAdapte
                 noTopSkirt = String.valueOf(list.get(6).getItemCount()),
                 noGown = String.valueOf(list.get(7).getItemCount()),
                 noOvercoat = String.valueOf(list.get(8).getItemCount());
-               String noSimpleChuridar = String.valueOf(list.get(9).getItemCount());
-               String noWeddingBlouse = String.valueOf(list.get(10).getItemCount());
-               String noWeddingNet = String.valueOf(list.get(11).getItemCount());
+        String noSimpleChuridar = String.valueOf(list.get(9).getItemCount());
+        String noWeddingBlouse = String.valueOf(list.get(10).getItemCount());
+        String noWeddingNet = String.valueOf(list.get(11).getItemCount());
 
         Call<JsonElement> call;
-        call = AppApplication.getApiService().saveOrder(CmpId, BrId, FaId, UserId, custId, isAlter, orderNo, noChuridar, noAnarkali, noshawl, noSaree, noBlouse, noTopSkirt, noGown, noOvercoat, noFrock,"",noSimpleChuridar,noWeddingBlouse,noWeddingNet);
+        call = AppApplication.getApiService().saveOrder(CmpId, BrId, FaId, UserId, custId, isAlter, orderNo, noChuridar, noAnarkali, noshawl, noSaree, noBlouse, noTopSkirt, noGown, noOvercoat, noFrock, "", noSimpleChuridar, noWeddingBlouse, noWeddingNet);
 
         call.enqueue(new Callback<JsonElement>() {
             @Override

@@ -15,10 +15,7 @@ import android.widget.Toast;
 import com.google.gson.JsonElement;
 import com.theresa.boutique.adapter.ProductListAdapter2;
 import com.theresa.boutique.base.BaseActivity;
-import com.theresa.boutique.model.OrderDress;
-import com.theresa.boutique.model.ProductData;
 import com.theresa.boutique.model.ProductData2;
-import com.theresa.boutique.util.Constants;
 
 import net.bohush.geometricprogressview.GeometricProgressView;
 
@@ -34,9 +31,7 @@ import ru.katso.livebutton.LiveButton;
 
 import static com.theresa.boutique.util.Constants.BRID;
 import static com.theresa.boutique.util.Constants.CMPID;
-import static com.theresa.boutique.util.Constants.FAID;
 import static com.theresa.boutique.util.Constants.ORDERNO;
-import static com.theresa.boutique.util.Constants.USERID;
 
 public class SecondNewOrderActivity extends BaseActivity implements ProductListAdapter2.ClickListener {
     private Toolbar toolbar;
@@ -46,9 +41,11 @@ public class SecondNewOrderActivity extends BaseActivity implements ProductListA
     private ProductListAdapter2 mAdapter;
     ArrayList<ProductData2> plist = new ArrayList<>();
 
-    private String orderNo = null, custId, isAlter = "false";
+    private String orderNo = null;
+    private String orderID = null;
+    private String custId, isAlter = "false";
     SwitchCompat switchAlter;
-    TextView textorderid,textitem;
+    TextView textorderid, textitem;
 
 
     private boolean order = false;
@@ -58,32 +55,23 @@ public class SecondNewOrderActivity extends BaseActivity implements ProductListA
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second_new_order);
-        Intent i=getIntent();
+        Intent i = getIntent();
 
-        generateOrderNum();
+//        generateOrderNum();
 
 
         initView();
 
         custId = getIntent().getStringExtra("CustId");
-        String title=i.getStringExtra("id");
-        textorderid=findViewById(R.id.textorderid);
-        textorderid.setText(title);
-
-
-
-
+        orderID = i.getStringExtra("id");
+        textorderid = findViewById(R.id.textorderid);
+        textorderid.setText(orderID);
 
 
         OrderList();
 
 
-
-
-
     }
-
-
 
 
     private void generateOrderNum() {
@@ -96,8 +84,9 @@ public class SecondNewOrderActivity extends BaseActivity implements ProductListA
                         JSONObject jsonObject = new JSONObject(response.body().getAsJsonObject().toString());
                         if (jsonObject.getString("ErrorCode").equalsIgnoreCase("0")) {
                             orderNo = jsonObject.getString("Data");
-                            if (order){}
-                                //saveOrder();
+                            if (order) {
+                            }
+                            //saveOrder();
                         } else {
                             Toast.makeText(SecondNewOrderActivity.this, "OrderNumber Creation failed.", Toast.LENGTH_SHORT).show();
                             progressView.setVisibility(View.GONE);
@@ -117,7 +106,6 @@ public class SecondNewOrderActivity extends BaseActivity implements ProductListA
         });
 
     }
-
 
 
     private void initView() {
@@ -154,8 +142,6 @@ public class SecondNewOrderActivity extends BaseActivity implements ProductListA
         //addData();
 
 
-
-
         mAdapter = new ProductListAdapter2(this, plist);
         rvProductList.setAdapter(mAdapter);
 
@@ -166,14 +152,10 @@ public class SecondNewOrderActivity extends BaseActivity implements ProductListA
                 order = true;
 
 
-
-
-                if (orderNo != null){
+                if (orderNo != null) {
                     //saveOrder();
 
-                    }
-
-                else
+                } else
                     generateOrderNum();
 
             }
@@ -184,9 +166,9 @@ public class SecondNewOrderActivity extends BaseActivity implements ProductListA
 
 
 
-   /* private void addData() {
+    /* private void addData() {
 
-       *//* List item for title item
+     *//* List item for title item
         ProductData item0 = new ProductData();
         list.add(item0);*//*
 
@@ -275,10 +257,10 @@ public class SecondNewOrderActivity extends BaseActivity implements ProductListA
         progressView.setVisibility(View.VISIBLE);
         String CmpId = getSharedPreferenceHelper().getString(CMPID, ""),
                 BrId = getSharedPreferenceHelper().getString(BRID, "");
-               String OrderNo=getSharedPreferenceHelper().getString(ORDERNO, "");
+        String OrderNo = getSharedPreferenceHelper().getString(ORDERNO, "");
 
 
-        Call<JsonElement> call = AppApplication.getApiService().OrderList(CmpId, BrId, OrderNo);
+        Call<JsonElement> call = AppApplication.getApiService().OrderList(CmpId, BrId, orderID);
         call.enqueue(new Callback<JsonElement>() {
             @Override
             public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
@@ -290,117 +272,116 @@ public class SecondNewOrderActivity extends BaseActivity implements ProductListA
                         for (int i = 0; i < jsonArray.length(); i++) {
                             ProductData2 od = new ProductData2();
                             JSONObject temp = jsonArray.getJSONObject(i);
-                            od.setAutoId(temp.getInt("AutoID"));
-                           od.setId(temp.getInt("Id"));
-                           od.setTokenNo(temp.getInt("TokenNo"));
-                           od.setRefNo(temp.getInt("RefNo"));
-                           od.setTrDate(temp.getInt("TrDate"));
-                           od.setAccId(temp.getInt("AcccId"));
-                           od.setAccName(temp.getString("AccName"));
-                           od.setAccCode(temp.getInt("AccCode"));
-                           od.setIsAlteration(temp.getString("IsAlteration"));
-                           od.setMobileNo(temp.getInt("MobileNo"));
-                           od.setNoOfChurider(temp.getInt("NoOfChurider"));
-                           od.setNoOfAnarkali(temp.getInt("NoOfAnarkali"));
-                            od.setNoOfShawl(temp.getInt("NoOfShawl"));
-                            od.setNoOfSaree(temp.getInt("NoOfSaree"));
-                            od.setNoOfFrock(temp.getInt("NoOfFrock"));
-                            od.setNoOfBlouse(temp.getInt("NoOfBlouse"));
-                            od.setNoOfTopSkirt(temp.getInt("NoOfTopSkirt"));
-                            od.setNoOfGown(temp.getInt("NoOfGown"));
-                            od.setNoOfOverCoat(temp.getInt("NoOfOverCoat"));
-                            od.setNoOfItem1(temp.getInt("NoOfItem1"));
-                            od.setNoOfItem2(temp.getInt("NoOfItem2"));
-                            od.setNoOfItem3(temp.getInt("NoOfItem3"));
-                            od.setTotBags(temp.getInt("TotBags"));
-                            od.setCompanyId(temp.getInt("CompanyId"));
-                            od.setBranchId(temp.getInt("BranchId"));
+                            od.setAutoId(temp.getString("AutoId"));
+                            od.setId(temp.getString("Id"));
+                            od.setTokenNo(temp.getString("TokenNo"));
+                            od.setRefNo(temp.getString("RefNo"));
+                            od.setTrDate(temp.getString("TrDate"));
+                            od.setAccId(temp.getString("AccId"));
+                            od.setAccName(temp.getString("AccName"));
+                            od.setAccCode(temp.getString("AccCode"));
+                            od.setIsAlteration(temp.getString("IsAlteration"));
+                            od.setMobileNo(temp.getString("MobileNo"));
+                            od.setNoOfChurider(temp.getString("NoOfChurider"));
+                            od.setNoOfAnarkali(temp.getString("NoOfAnarkali"));
+                            od.setNoOfShawl(temp.getString("NoOfShawl"));
+                            od.setNoOfSaree(temp.getString("NoOfSaree"));
+                            od.setNoOfFrock(temp.getString("NoOfFrock"));
+                            od.setNoOfBlouse(temp.getString("NoOfBlouse"));
+                            od.setNoOfTopSkirt(temp.getString("NoOfTopSkirt"));
+                            od.setNoOfGown(temp.getString("NoOfGown"));
+                            od.setNoOfOverCoat(temp.getString("NoOfOverCoat"));
+                            od.setNoOfItem1(temp.getString("NoOfItem1"));
+                            od.setNoOfItem2(temp.getString("NoOfItem2"));
+                            od.setNoOfItem3(temp.getString("NoOfItem3"));
+                            od.setTotBags(temp.getString("TotBags"));
+                            od.setCompanyId(temp.getString("CompanyId"));
+                            od.setBranchId(temp.getString("BranchId"));
 
 
                             ProductData2 item1 = new ProductData2();
                             item1.setItemName("No. of Churidar");
-                            item1.setItemCount(od.getNoOfChurider());
+                            item1.setItemCount(Integer.parseInt(od.getNoOfChurider()));
                             //item1.setNoOfChurider(od.getNoOfChurider());
                             item1.setImageDrawable(R.drawable.churidar);
                             plist.add(item1);
 
                             ProductData2 item2 = new ProductData2();
                             item2.setItemName("No. of Anarkali");
-                            item2.setItemCount(od.getNoOfAnarkali());
-                           // item2.setNoOfAnarkali(od.getNoOfAnarkali());
+                            item2.setItemCount(Integer.parseInt(od.getNoOfAnarkali()));
+                            // item2.setNoOfAnarkali(od.getNoOfAnarkali());
                             item2.setImageDrawable(R.drawable.anarkali);
                             plist.add(item2);
 
                             ProductData2 item3 = new ProductData2();
                             item3.setItemName("No. of Shawl");
-                            item3.setItemCount(od.getNoOfShawl());
+                            item3.setItemCount(Integer.parseInt(od.getNoOfShawl()));
                             //item3.setNoOfShawl(od.getNoOfShawl());
                             item3.setImageDrawable(R.drawable.shawl);
                             plist.add(item3);
 
                             ProductData2 item4 = new ProductData2();
                             item4.setItemName("No. of Saree");
-                           item4.setItemCount(od.getNoOfSaree());
+                            item4.setItemCount(Integer.parseInt(od.getNoOfSaree()));
                             //item4.setNoOfSaree(od.getNoOfSaree());
                             item4.setImageDrawable(R.drawable.saree);
                             plist.add(item4);
 
                             ProductData2 item5 = new ProductData2();
                             item5.setItemName("No. of Frock");
-                            item5.setItemCount(od.getNoOfFrock());
-                           // item5.setNoOfFrock(od.getNoOfFrock());
+                            item5.setItemCount(Integer.parseInt(od.getNoOfFrock()));
+                            // item5.setNoOfFrock(od.getNoOfFrock());
                             item5.setImageDrawable(R.drawable.frock);
                             plist.add(item5);
 
                             ProductData2 item6 = new ProductData2();
                             item6.setItemName("No. of Blouse");
-                            item6.setItemCount(od.getNoOfBlouse());
+                            item6.setItemCount(Integer.parseInt(od.getNoOfBlouse()));
                             //item6.setNoOfBlouse(od.getNoOfBlouse());
                             item6.setImageDrawable(R.drawable.blouse);
                             plist.add(item6);
 
                             ProductData2 item7 = new ProductData2();
                             item7.setItemName("No. of Top/skirt");
-                            item7.setItemCount(od.getNoOfTopSkirt());
+                            item7.setItemCount(Integer.parseInt(od.getNoOfTopSkirt()));
                             //item7.setNoOfTopSkirt(od.getNoOfTopSkirt());
                             item7.setImageDrawable(R.drawable.top);
                             plist.add(item7);
 
                             ProductData2 item8 = new ProductData2();
                             item8.setItemName("No. of Gown");
-                            item8.setItemCount(od.getNoOfGown());
+                            item8.setItemCount(Integer.parseInt(od.getNoOfGown()));
                             //item8.setNoOfGown(od.getNoOfGown());
                             item8.setImageDrawable(R.drawable.gown);
                             plist.add(item8);
 
                             ProductData2 item9 = new ProductData2();
                             item9.setItemName("No. of Overcoat");
-                            item9.setItemCount(od.getNoOfOverCoat());
+                            item9.setItemCount(Integer.parseInt(od.getNoOfOverCoat()));
                             //item9.setNoOfOverCoat(od.getNoOfOverCoat());
                             item9.setImageDrawable(R.drawable.overcoat);
                             plist.add(item9);
 
                             ProductData2 item10 = new ProductData2();
                             item10.setItemName("No. of Simple Churidar");
-                            item10.setItemCount(od.getNoOfItem1());
+                            item10.setItemCount(Integer.parseInt(od.getNoOfItem1()));
                             //item10.setNoOfItem1(od.getNoOfItem1());
                             item10.setImageDrawable(R.drawable.simplechuridar);
                             plist.add(item10);
 
                             ProductData2 item11 = new ProductData2();
                             item11.setItemName("No. of Wedding Blouse");
-                            item11.setItemCount(od.getNoOfItem2());
+                            item11.setItemCount(Integer.parseInt(od.getNoOfItem2()));
                             //item11.setNoOfItem2(od.getNoOfItem2());
                             item11.setImageDrawable(R.drawable.wedingblouse);
                             plist.add(item11);
 
                             ProductData2 item12 = new ProductData2();
                             item12.setItemName("No. of Wedding Net");
-                            item12.setItemCount(od.getNoOfItem3());
-                           // item12.setNoOfItem3(od.getNoOfItem3());
+                            item12.setItemCount(Integer.parseInt(od.getNoOfItem3()));
+                            // item12.setNoOfItem3(od.getNoOfItem3());
                             item12.setImageDrawable(R.drawable.weddingnet);
                             plist.add(item12);
-
 
 
                             plist.add(od);
@@ -409,8 +390,7 @@ public class SecondNewOrderActivity extends BaseActivity implements ProductListA
                         }
                         mAdapter.notifyDataSetChanged();
                         progressView.setVisibility(View.GONE);
-                    }
-                    else {
+                    } else {
                         Toast.makeText(SecondNewOrderActivity.this, "No Data Found", Toast.LENGTH_SHORT).show();
                         progressView.setVisibility(View.GONE);
                     }

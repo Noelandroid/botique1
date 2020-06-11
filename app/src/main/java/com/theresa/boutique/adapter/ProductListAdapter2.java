@@ -84,21 +84,21 @@ public class ProductListAdapter2 extends RecyclerView.Adapter<ProductListAdapter
 
             itemListView.tvProductName.setText(oList.get(i-1).getItemName());
             itemListView.tvCount.setText(formatter.format(oList.get(i-1).getItemCount()));
-            //itemListView.tvnewCount.setText(formatter.format(oList.get(i-1).getItemCount()));
+            itemListView.tvnewCount.setText(formatter.format(oList.get(i-1).getItemCount()));
 
 
-            itemListView.tvnewCount.setText(formatter.format(oList.get(i-1).getNoOfChurider()));
-            itemListView.tvnewCount.setText(formatter.format(oList.get(i-1).getNoOfAnarkali()));
-            itemListView.tvnewCount.setText(formatter.format(oList.get(i-1).getNoOfShawl()));
-            itemListView.tvnewCount.setText(formatter.format(oList.get(i-1).getNoOfSaree()));
-            itemListView.tvnewCount.setText(formatter.format(oList.get(i-1).getNoOfFrock()));
-            itemListView.tvnewCount.setText(formatter.format(oList.get(i-1).getNoOfBlouse()));
-            itemListView.tvnewCount.setText(formatter.format(oList.get(i-1).getNoOfTopSkirt()));
-            itemListView.tvnewCount.setText(formatter.format(oList.get(i-1).getNoOfGown()));
-            itemListView.tvnewCount.setText(formatter.format(oList.get(i-1).getNoOfOverCoat()));
-            itemListView.tvnewCount.setText(formatter.format(oList.get(i-1).getNoOfItem1()));
-            itemListView.tvnewCount.setText(formatter.format(oList.get(i-1).getNoOfItem2()));
-            itemListView.tvnewCount.setText(formatter.format(oList.get(i-1).getNoOfItem3()));
+//            itemListView.tvnewCount.setText(formatter.format(oList.get(i-1).getNoOfChurider()));
+//            itemListView.tvnewCount.setText(formatter.format(oList.get(i-1).getNoOfAnarkali()));
+//            itemListView.tvnewCount.setText(formatter.format(oList.get(i-1).getNoOfShawl()));
+//            itemListView.tvnewCount.setText(formatter.format(oList.get(i-1).getNoOfSaree()));
+//            itemListView.tvnewCount.setText(formatter.format(oList.get(i-1).getNoOfFrock()));
+//            itemListView.tvnewCount.setText(formatter.format(oList.get(i-1).getNoOfBlouse()));
+//            itemListView.tvnewCount.setText(formatter.format(oList.get(i-1).getNoOfTopSkirt()));
+//            itemListView.tvnewCount.setText(formatter.format(oList.get(i-1).getNoOfGown()));
+//            itemListView.tvnewCount.setText(formatter.format(oList.get(i-1).getNoOfOverCoat()));
+//            itemListView.tvnewCount.setText(formatter.format(oList.get(i-1).getNoOfItem1()));
+//            itemListView.tvnewCount.setText(formatter.format(oList.get(i-1).getNoOfItem2()));
+//            itemListView.tvnewCount.setText(formatter.format(oList.get(i-1).getNoOfItem3()));
 
 
 

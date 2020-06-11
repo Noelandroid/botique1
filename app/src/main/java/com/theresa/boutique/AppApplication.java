@@ -2,6 +2,7 @@ package com.theresa.boutique;
 
 import android.app.Application;
 
+import com.facebook.stetho.Stetho;
 import com.theresa.boutique.util.ApiService;
 import com.theresa.boutique.util.NetworkUtil;
 
@@ -23,5 +24,6 @@ public class AppApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        Stetho.initializeWithDefaults(this);
     }
 }
